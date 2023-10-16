@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "3yUYIovQwCWpW3d+rkrlkeGF6EBgY7LqDGV8ADi4u/NQK+bg9crWTQw2IWDXBJZs6lGB7Sqt6y1W6ibtFJyM/g==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\LuisC\\Desktop\\IoTmainFrameV0\\IoTmainFrameV0.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\LuisC\\.nuget\\packages\\mqttnet\\4.1.4.563\\mqttnet.4.1.4.563.nupkg.sha512",
+    "C:\\Users\\LuisC\\.nuget\\packages\\mqttnet.aspnetcore\\4.1.4.563\\mqttnet.aspnetcore.4.1.4.563.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,15 @@
+C:\Users\LuisC\Desktop\socket-server\bin\Debug\net7.0\socket-server.exe
+C:\Users\LuisC\Desktop\socket-server\bin\Debug\net7.0\socket-server.deps.json
+C:\Users\LuisC\Desktop\socket-server\bin\Debug\net7.0\socket-server.runtimeconfig.json
+C:\Users\LuisC\Desktop\socket-server\bin\Debug\net7.0\socket-server.dll
+C:\Users\LuisC\Desktop\socket-server\bin\Debug\net7.0\socket-server.pdb
+C:\Users\LuisC\Desktop\socket-server\obj\Debug\net7.0\socket-server.csproj.AssemblyReference.cache
+C:\Users\LuisC\Desktop\socket-server\obj\Debug\net7.0\socket-server.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\LuisC\Desktop\socket-server\obj\Debug\net7.0\socket-server.AssemblyInfoInputs.cache
+C:\Users\LuisC\Desktop\socket-server\obj\Debug\net7.0\socket-server.AssemblyInfo.cs
+C:\Users\LuisC\Desktop\socket-server\obj\Debug\net7.0\socket-server.csproj.CoreCompileInputs.cache
+C:\Users\LuisC\Desktop\socket-server\obj\Debug\net7.0\socket-server.dll
+C:\Users\LuisC\Desktop\socket-server\obj\Debug\net7.0\refint\socket-server.dll
+C:\Users\LuisC\Desktop\socket-server\obj\Debug\net7.0\socket-server.pdb
+C:\Users\LuisC\Desktop\socket-server\obj\Debug\net7.0\socket-server.genruntimeconfig.cache
+C:\Users\LuisC\Desktop\socket-server\obj\Debug\net7.0\ref\socket-server.dll
