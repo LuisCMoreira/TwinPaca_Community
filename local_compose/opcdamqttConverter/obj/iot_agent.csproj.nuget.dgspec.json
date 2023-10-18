@@ -1,0 +1,95 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\LuisC\\Desktop\\githubProjects\\TwinPaca_Community\\local_compose\\opcdamqttConverter\\iot_agent.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\LuisC\\Desktop\\githubProjects\\TwinPaca_Community\\local_compose\\opcdamqttConverter\\iot_agent.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\LuisC\\Desktop\\githubProjects\\TwinPaca_Community\\local_compose\\opcdamqttConverter\\iot_agent.csproj",
+        "projectName": "iot_agent",
+        "projectPath": "C:\\Users\\LuisC\\Desktop\\githubProjects\\TwinPaca_Community\\local_compose\\opcdamqttConverter\\iot_agent.csproj",
+        "packagesPath": "C:\\Users\\LuisC\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\LuisC\\Desktop\\githubProjects\\TwinPaca_Community\\local_compose\\opcdamqttConverter\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\LuisC\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "GodSharp.Opc.Da.OpcAutomation": {
+              "target": "Package",
+              "version": "[2022.308.10, )"
+            },
+            "GodSharp.Opc.Da.OpcNetApi": {
+              "target": "Package",
+              "version": "[2022.308.10, )"
+            },
+            "MQTTnet": {
+              "target": "Package",
+              "version": "[3.0.16, )"
+            },
+            "MQTTnet.Extensions.ManagedClient": {
+              "target": "Package",
+              "version": "[3.0.16, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.2-beta3, )"
+            },
+            "Oocx.ReadX509CertificateFromPem": {
+              "target": "Package",
+              "version": "[1.2.3, )"
+            },
+            "Serilog": {
+              "target": "Package",
+              "version": "[2.12.1-dev-01587, )"
+            },
+            "Serilog.Sinks.Console": {
+              "target": "Package",
+              "version": "[4.1.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

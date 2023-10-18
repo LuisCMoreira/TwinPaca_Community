@@ -1,0 +1,28 @@
+{
+  "version": 2,
+  "dgSpecHash": "+fB+RKxzkBBp3Xdvn7GqgApsFoWx0bXPsgM6jgShC8prGtSN7V9Vpm8vmeqzvK+c9iSdAirpcHH2i0mLkXNfqA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\LuisC\\Desktop\\githubProjects\\TwinPaca_Community\\local_compose\\opcdamqttConverter\\iot_agent.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\LuisC\\.nuget\\packages\\godsharp.opc.da\\2022.308.10\\godsharp.opc.da.2022.308.10.nupkg.sha512",
+    "C:\\Users\\LuisC\\.nuget\\packages\\godsharp.opc.da.opcautomation\\2022.308.10\\godsharp.opc.da.opcautomation.2022.308.10.nupkg.sha512",
+    "C:\\Users\\LuisC\\.nuget\\packages\\godsharp.opc.da.opcnetapi\\2022.308.10\\godsharp.opc.da.opcnetapi.2022.308.10.nupkg.sha512",
+    "C:\\Users\\LuisC\\.nuget\\packages\\microsoft.aspnetcore.webutilities\\2.2.0\\microsoft.aspnetcore.webutilities.2.2.0.nupkg.sha512",
+    "C:\\Users\\LuisC\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\LuisC\\.nuget\\packages\\microsoft.extensions.primitives\\2.2.0\\microsoft.extensions.primitives.2.2.0.nupkg.sha512",
+    "C:\\Users\\LuisC\\.nuget\\packages\\microsoft.net.http.headers\\2.2.0\\microsoft.net.http.headers.2.2.0.nupkg.sha512",
+    "C:\\Users\\LuisC\\.nuget\\packages\\mqttnet\\3.0.16\\mqttnet.3.0.16.nupkg.sha512",
+    "C:\\Users\\LuisC\\.nuget\\packages\\mqttnet.extensions.managedclient\\3.0.16\\mqttnet.extensions.managedclient.3.0.16.nupkg.sha512",
+    "C:\\Users\\LuisC\\.nuget\\packages\\newtonsoft.json\\13.0.2-beta3\\newtonsoft.json.13.0.2-beta3.nupkg.sha512",
+    "C:\\Users\\LuisC\\.nuget\\packages\\oocx.readx509certificatefrompem\\1.2.3\\oocx.readx509certificatefrompem.1.2.3.nupkg.sha512",
+    "C:\\Users\\LuisC\\.nuget\\packages\\serilog\\2.12.1-dev-01587\\serilog.2.12.1-dev-01587.nupkg.sha512",
+    "C:\\Users\\LuisC\\.nuget\\packages\\serilog.sinks.console\\4.1.0\\serilog.sinks.console.4.1.0.nupkg.sha512",
+    "C:\\Users\\LuisC\\.nuget\\packages\\system.buffers\\4.5.0\\system.buffers.4.5.0.nupkg.sha512",
+    "C:\\Users\\LuisC\\.nuget\\packages\\system.memory\\4.5.1\\system.memory.4.5.1.nupkg.sha512",
+    "C:\\Users\\LuisC\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.1\\system.runtime.compilerservices.unsafe.4.5.1.nupkg.sha512",
+    "C:\\Users\\LuisC\\.nuget\\packages\\system.security.cryptography.cng\\4.7.0\\system.security.cryptography.cng.4.7.0.nupkg.sha512",
+    "C:\\Users\\LuisC\\.nuget\\packages\\system.security.cryptography.pkcs\\4.7.0\\system.security.cryptography.pkcs.4.7.0.nupkg.sha512",
+    "C:\\Users\\LuisC\\.nuget\\packages\\system.text.encodings.web\\4.5.0\\system.text.encodings.web.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Data Manager</title>
+</head>
+<body>
+  <h1>Data In MQTT Broker</h1>
+  <pre id="lastEvent"></pre>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.1/socket.io.js"></script>
+  <script>
+    const socket = io('http://localhost:3000');
+
+    socket.on('mqtt-data', (data) => {
+      // Update the content of the "lastEvent" element
+      document.getElementById('lastEvent').textContent = JSON.stringify(data, null, 2);
+    });
+  </script>
+</body>
+</html>
