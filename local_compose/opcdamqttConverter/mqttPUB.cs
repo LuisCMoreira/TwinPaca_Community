@@ -83,6 +83,51 @@ namespace Magent
 
         }
 
+
+
+        public void startMQTTclient( string IP, int Port, string clientID)
+        {
+            Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Debug()
+                .Enrich.FromLogContext()
+                .WriteTo.Console()
+                .CreateLogger();
+
+
+            if (IP == null || Port == 0)
+            {
+                Console.WriteLine("Missing MQTT config!!!");
+                return;
+            }
+
+            MqttClientOptionsBuilder builder = new MqttClientOptionsBuilder()
+                .WithClientId(clientID)
+                .WithTcpServer(IP, Port)
+                ;
+            
+            
+            options = new ManagedMqttClientOptionsBuilder()
+                                                .WithAutoReconnectDelay(TimeSpan.FromSeconds(60))
+                                                .WithClientOptions(builder.Build())
+                                                .Build();
+
+
+
+            _mqttClient.ConnectedHandler = new MqttClientConnectedHandlerDelegate(OnConnected);
+            _mqttClient.DisconnectedHandler = new MqttClientDisconnectedHandlerDelegate(OnDisconnected);
+            _mqttClient.ConnectingFailedHandler = new ConnectingFailedHandlerDelegate(OnConnectingFailed);
+
+            _mqttClient.ApplicationMessageReceivedHandler = new MqttApplicationMessageReceivedHandlerDelegate(a =>
+            {
+                Log.Logger.Information("Message recieved: {payload}", a.ApplicationMessage);
+            });
+
+
+        }
+
+
+
+
         public void pubTopic(List<Object[]> msg, string deviceType, string  DeviceID,string  manufacturerName,string  serialNo, string  beaconMsg)
         {
 

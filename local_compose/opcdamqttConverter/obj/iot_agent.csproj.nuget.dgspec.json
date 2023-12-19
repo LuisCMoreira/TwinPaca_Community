@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\LuisC\\Desktop\\githubProjects\\vTwinPack_framework\\local_compose\\opcdamqttConverter\\iot_agent.csproj": {}
+    "C:\\Users\\LuisC\\Desktop\\githubProjects\\vTwinPack_framework\\local_compose\\opcdamqttConverter\\iot_agent.csproj": {}
   },
   "projects": {
-    "c:\\Users\\LuisC\\Desktop\\githubProjects\\vTwinPack_framework\\local_compose\\opcdamqttConverter\\iot_agent.csproj": {
+    "C:\\Users\\LuisC\\Desktop\\githubProjects\\vTwinPack_framework\\local_compose\\opcdamqttConverter\\iot_agent.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\LuisC\\Desktop\\githubProjects\\vTwinPack_framework\\local_compose\\opcdamqttConverter\\iot_agent.csproj",
+        "projectUniqueName": "C:\\Users\\LuisC\\Desktop\\githubProjects\\vTwinPack_framework\\local_compose\\opcdamqttConverter\\iot_agent.csproj",
         "projectName": "iot_agent",
-        "projectPath": "c:\\Users\\LuisC\\Desktop\\githubProjects\\vTwinPack_framework\\local_compose\\opcdamqttConverter\\iot_agent.csproj",
+        "projectPath": "C:\\Users\\LuisC\\Desktop\\githubProjects\\vTwinPack_framework\\local_compose\\opcdamqttConverter\\iot_agent.csproj",
         "packagesPath": "C:\\Users\\LuisC\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\LuisC\\Desktop\\githubProjects\\vTwinPack_framework\\local_compose\\opcdamqttConverter\\obj\\",
+        "outputPath": "C:\\Users\\LuisC\\Desktop\\githubProjects\\vTwinPack_framework\\local_compose\\opcdamqttConverter\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\LuisC\\AppData\\Roaming\\NuGet\\NuGet.Config"

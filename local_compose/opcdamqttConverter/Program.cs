@@ -1,6 +1,6 @@
 ﻿var DAgetter = new DAgent.opcDAget("OPCDA");
 var mPUB = new Magent.mqttPUB("MQTT");
-var certt = new MQTTNet_AWS.awsCertConvertion("certs");
+//var certt = new MQTTNet_AWS.awsCertConvertion("certs");
 var config = new jsonReadSpace.JConfig("agentConfig.json");
 
 var deviceType = "unconfig";
@@ -20,9 +20,11 @@ var opcdaServer = "Matrikon.OPC.Simulation.1";
 
 taskRate = setupFromJSON(config, ref deviceType, ref deviceID, ref manufacturerName, ref serialNo, ref mqttIP, ref mqttPort, ref mqttClientID,ref mqttBeaconMsg, ref mqttUseCert, ref opcdaVars, ref opcdaIP, ref opcdaServer);
 
-var mqttcert = certt.certTask();
+//var mqttcert = certt.certTask();
 
-mPUB.startMQTTclient(mqttIP, mqttPort, mqttClientID, mqttUseCert, mqttcert);
+//mPUB.startMQTTclient(mqttIP, mqttPort, mqttClientID, mqttUseCert, mqttcert);
+mPUB.startMQTTclient(mqttIP, mqttPort, mqttClientID);
+
 var daClient = DAgetter.DAclient(opcdaIP, opcdaServer, opcdaVars);
 
 
