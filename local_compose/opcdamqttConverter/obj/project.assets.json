@@ -856,11 +856,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\LuisC\\Desktop\\githubProjects\\TwinPaca_Community\\local_compose\\opcdamqttConverter\\iot_agent.csproj",
+      "projectUniqueName": "C:\\Users\\LuisC\\Desktop\\githubProjects\\vTwinPack_framework\\local_compose\\opcdamqttConverter\\iot_agent.csproj",
       "projectName": "iot_agent",
-      "projectPath": "C:\\Users\\LuisC\\Desktop\\githubProjects\\TwinPaca_Community\\local_compose\\opcdamqttConverter\\iot_agent.csproj",
+      "projectPath": "C:\\Users\\LuisC\\Desktop\\githubProjects\\vTwinPack_framework\\local_compose\\opcdamqttConverter\\iot_agent.csproj",
       "packagesPath": "C:\\Users\\LuisC\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\LuisC\\Desktop\\githubProjects\\TwinPaca_Community\\local_compose\\opcdamqttConverter\\obj\\",
+      "outputPath": "C:\\Users\\LuisC\\Desktop\\githubProjects\\vTwinPack_framework\\local_compose\\opcdamqttConverter\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\LuisC\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -936,7 +936,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.114\\RuntimeIdentifierGraph.json"
       }
     }
   }

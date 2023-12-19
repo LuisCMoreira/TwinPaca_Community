@@ -1,5 +1,5 @@
 {
-  "TimeInMillis": 5000,
+  "TimeInMillis": 100,
   "DeviceType": "IoT/myDevice_V0",
   "DeviceID": "someId",
   "ManufacturerName" : "Some Brand",
@@ -10,13 +10,17 @@
     "port": 1883,
     "clientID" : "IoTAgent_Cid",
     "beaconMsg": "Hello There!!!",
-    "useCerts": false
+    "useCerts": true
   },
   "opc_da": {
     "opcdaON": true,
     "IP_address": "localhost",
     "server": "Matrikon.OPC.Simulation.1",
     "variablesToGet": [
+      "Bucket Brigade.Int1",
+      "Bucket Brigade.Int2",
+      "Bucket Brigade.Int4",
+      "Bucket Brigade.Int8",
       "Random.Boolean",
       "Random.Int1",
       "Saw-toothed Waves.Int4",

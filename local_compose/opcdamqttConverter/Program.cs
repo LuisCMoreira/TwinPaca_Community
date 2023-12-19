@@ -1,6 +1,6 @@
 ﻿var DAgetter = new DAgent.opcDAget("OPCDA");
 var mPUB = new Magent.mqttPUB("MQTT");
-var certt = new MQTTNet_AWS.awsCertConvertion("awsCerts");
+var certt = new MQTTNet_AWS.awsCertConvertion("certs");
 var config = new jsonReadSpace.JConfig("agentConfig.json");
 
 var deviceType = "unconfig";
