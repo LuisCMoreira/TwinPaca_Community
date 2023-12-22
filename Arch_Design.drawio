@@ -1,25 +1,28 @@
-<mxfile host="app.diagrams.net" modified="2023-10-18T22:10:05.927Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36" etag="zWNRJLb5gLp-o2_cKHqE" version="22.0.4" type="device">
+<mxfile host="app.diagrams.net" modified="2023-12-22T23:42:00.302Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0" etag="TSw80NbP3Ybwws3mOe-c" version="22.1.11" type="device">
   <diagram name="Página-1" id="7zzRH2UkfeKaquIX6ZkR">
-    <mxGraphModel dx="1050" dy="1703" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1105" dy="1896" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="7Npt1wdLBXmJ5ymIumH4-31" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;dashed=1;strokeWidth=6;" parent="1" vertex="1">
           <mxGeometry x="10" y="220" width="830" height="400" as="geometry" />
         </mxCell>
-        <mxCell id="7Npt1wdLBXmJ5ymIumH4-1" value="OPCDA converter" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="4FtWLuwmcuxWjbDtP5bd-3" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;" vertex="1" parent="1">
+          <mxGeometry x="30" y="530" width="440" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="7Npt1wdLBXmJ5ymIumH4-1" value="OPCDA converter" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=none;" parent="1" vertex="1">
           <mxGeometry x="140" y="530" width="90" height="60" as="geometry" />
         </mxCell>
         <mxCell id="7Npt1wdLBXmJ5ymIumH4-3" value="MQTT Brocker (Mosquitto)" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="30" y="430" width="420" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="7Npt1wdLBXmJ5ymIumH4-4" value="MODBUS converter" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="7Npt1wdLBXmJ5ymIumH4-4" value="MODBUS converter" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=none;" parent="1" vertex="1">
           <mxGeometry x="30" y="530" width="90" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="7Npt1wdLBXmJ5ymIumH4-5" value="OPCUA converter" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="7Npt1wdLBXmJ5ymIumH4-5" value="OPCUA converter" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=none;" parent="1" vertex="1">
           <mxGeometry x="250" y="530" width="90" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="7Npt1wdLBXmJ5ymIumH4-6" value="..." style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="7Npt1wdLBXmJ5ymIumH4-6" value="..." style="rounded=0;whiteSpace=wrap;html=1;strokeColor=none;" parent="1" vertex="1">
           <mxGeometry x="360" y="530" width="90" height="60" as="geometry" />
         </mxCell>
         <mxCell id="7Npt1wdLBXmJ5ymIumH4-7" value="MongoDB" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" parent="1" vertex="1">
@@ -31,20 +34,8 @@
         <mxCell id="7Npt1wdLBXmJ5ymIumH4-10" value="DataManager" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="480" y="435" width="160" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="7Npt1wdLBXmJ5ymIumH4-12" value="" style="image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Docker.svg;" parent="1" vertex="1">
-          <mxGeometry x="200" y="510" width="40" height="32.8" as="geometry" />
-        </mxCell>
         <mxCell id="7Npt1wdLBXmJ5ymIumH4-13" value="" style="image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Docker.svg;" parent="1" vertex="1">
           <mxGeometry x="400" y="438.6" width="40" height="32.8" as="geometry" />
-        </mxCell>
-        <mxCell id="7Npt1wdLBXmJ5ymIumH4-14" value="" style="image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Docker.svg;" parent="1" vertex="1">
-          <mxGeometry x="414" y="530" width="40" height="32.8" as="geometry" />
-        </mxCell>
-        <mxCell id="7Npt1wdLBXmJ5ymIumH4-15" value="" style="image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Docker.svg;" parent="1" vertex="1">
-          <mxGeometry x="320" y="520" width="40" height="32.8" as="geometry" />
-        </mxCell>
-        <mxCell id="7Npt1wdLBXmJ5ymIumH4-16" value="" style="image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Docker.svg;" parent="1" vertex="1">
-          <mxGeometry x="90" y="510" width="40" height="32.8" as="geometry" />
         </mxCell>
         <mxCell id="7Npt1wdLBXmJ5ymIumH4-17" value="" style="image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Docker.svg;" parent="1" vertex="1">
           <mxGeometry x="200" y="316.95" width="40" height="32.8" as="geometry" />
@@ -278,6 +269,9 @@
         </mxCell>
         <mxCell id="9k12AXy6tt7gyHXrd-Mn-38" value="" style="ellipse;whiteSpace=wrap;html=1;fillColor=#00FF00;strokeColor=none;" parent="1" vertex="1">
           <mxGeometry x="710" y="44.400000000000006" width="15" height="17.4" as="geometry" />
+        </mxCell>
+        <mxCell id="7Npt1wdLBXmJ5ymIumH4-14" value="" style="image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/Docker.svg;" parent="1" vertex="1">
+          <mxGeometry x="440" y="520" width="40" height="32.8" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
