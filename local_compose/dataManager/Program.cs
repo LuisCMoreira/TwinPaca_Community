@@ -105,6 +105,8 @@ private static void UpdateMongoDB(string topic, BsonDocument data)
         collection.ReplaceOne(filter, existingDocument, new ReplaceOptions { IsUpsert = true });
 
         Console.WriteLine($"Updated data in MongoDB for topic {topic}: {data}");
+
+        AppendValuesToCollection(MongoDatabaseName, "Telemetry", topic, data);
     }
     catch (Exception ex)
     {
@@ -144,5 +146,37 @@ private static void UpdateTimestamp(string topic, BsonDocument jsonStructure)
 
     current["updated_at"] = DateTime.UtcNow;
 }
+
+
+    private static void AppendValuesToCollection(string dbName, string collectionName, string key1,  BsonDocument jsonValue1)
+    {
+        try
+        {
+            // MongoDB Setup
+            var mongoClient = new MongoClient(MongoConnectionString);
+            var database = mongoClient.GetDatabase(dbName);
+            var collection = database.GetCollection<BsonDocument>(collectionName);
+
+
+var bsonValue1 = (jsonValue1);
+
+            // Create a document with the specified key-value pairs
+            var documentToAppend = new BsonDocument
+            {
+                { key1, bsonValue1 },
+                { "timestamp", DateTime.UtcNow }
+                // Add other fields as needed
+            };
+
+            // Insert the document into the collection
+            collection.InsertOne(documentToAppend);
+
+            Console.WriteLine($"Appended values to MongoDB collection: {bsonValue1}");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error appending values to MongoDB collection: {ex.Message}");
+        }
+    }
 
 }
