@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "C/C36XyyJ9H4jtvGXgqIm/CsB8DY/X6rXSroKpyg+c+Kae6saUPd444BK+DgFlEbpmGY/k9KjmzwTA4+JTPubg==",
+  "dgSpecHash": "Mh7ySbQMjaLPkuftdergj3Yh+kd2elZpRXx9e0ANHJIqkkW1K4wbtgkzSK1gkdgXtjLwyHkGNq/dAifXOkexxQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\LuisC\\Desktop\\githubProjects\\vTwinPack_framework\\local_compose\\opcdamqttConverter\\iot_agent.csproj",
+  "projectFilePath": "C:\\Users\\LuisC\\Desktop\\githubProjects\\vTwinPack_framework\\mainCode\\dataTomqttExtractor\\iot_agent.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\LuisC\\.nuget\\packages\\godsharp.opc.da\\2022.308.10\\godsharp.opc.da.2022.308.10.nupkg.sha512",
     "C:\\Users\\LuisC\\.nuget\\packages\\godsharp.opc.da.opcautomation\\2022.308.10\\godsharp.opc.da.opcautomation.2022.308.10.nupkg.sha512",
