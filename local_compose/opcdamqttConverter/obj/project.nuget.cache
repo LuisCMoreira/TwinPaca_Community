@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "WPjgGHj+eZzqib6t6jEK79DLEiq314Fa5k3qXOftEbxgN3K6gNQzJnHkdJ8HvMgEMczBLqnhBRIBEVGXHRTcQg==",
+  "dgSpecHash": "C/C36XyyJ9H4jtvGXgqIm/CsB8DY/X6rXSroKpyg+c+Kae6saUPd444BK+DgFlEbpmGY/k9KjmzwTA4+JTPubg==",
   "success": true,
   "projectFilePath": "C:\\Users\\LuisC\\Desktop\\githubProjects\\vTwinPack_framework\\local_compose\\opcdamqttConverter\\iot_agent.csproj",
   "expectedPackageFiles": [
@@ -14,15 +14,34 @@
     "C:\\Users\\LuisC\\.nuget\\packages\\mqttnet\\3.0.16\\mqttnet.3.0.16.nupkg.sha512",
     "C:\\Users\\LuisC\\.nuget\\packages\\mqttnet.extensions.managedclient\\3.0.16\\mqttnet.extensions.managedclient.3.0.16.nupkg.sha512",
     "C:\\Users\\LuisC\\.nuget\\packages\\newtonsoft.json\\13.0.2-beta3\\newtonsoft.json.13.0.2-beta3.nupkg.sha512",
+    "C:\\Users\\LuisC\\.nuget\\packages\\nmodbus\\3.0.72\\nmodbus.3.0.72.nupkg.sha512",
     "C:\\Users\\LuisC\\.nuget\\packages\\oocx.readx509certificatefrompem\\1.2.3\\oocx.readx509certificatefrompem.1.2.3.nupkg.sha512",
+    "C:\\Users\\LuisC\\.nuget\\packages\\runtime.linux-arm.runtime.native.system.io.ports\\6.0.0\\runtime.linux-arm.runtime.native.system.io.ports.6.0.0.nupkg.sha512",
+    "C:\\Users\\LuisC\\.nuget\\packages\\runtime.linux-arm64.runtime.native.system.io.ports\\6.0.0\\runtime.linux-arm64.runtime.native.system.io.ports.6.0.0.nupkg.sha512",
+    "C:\\Users\\LuisC\\.nuget\\packages\\runtime.linux-x64.runtime.native.system.io.ports\\6.0.0\\runtime.linux-x64.runtime.native.system.io.ports.6.0.0.nupkg.sha512",
+    "C:\\Users\\LuisC\\.nuget\\packages\\runtime.native.system.io.ports\\6.0.0\\runtime.native.system.io.ports.6.0.0.nupkg.sha512",
+    "C:\\Users\\LuisC\\.nuget\\packages\\runtime.osx-arm64.runtime.native.system.io.ports\\6.0.0\\runtime.osx-arm64.runtime.native.system.io.ports.6.0.0.nupkg.sha512",
+    "C:\\Users\\LuisC\\.nuget\\packages\\runtime.osx-x64.runtime.native.system.io.ports\\6.0.0\\runtime.osx-x64.runtime.native.system.io.ports.6.0.0.nupkg.sha512",
     "C:\\Users\\LuisC\\.nuget\\packages\\serilog\\2.12.1-dev-01587\\serilog.2.12.1-dev-01587.nupkg.sha512",
     "C:\\Users\\LuisC\\.nuget\\packages\\serilog.sinks.console\\4.1.0\\serilog.sinks.console.4.1.0.nupkg.sha512",
     "C:\\Users\\LuisC\\.nuget\\packages\\system.buffers\\4.5.0\\system.buffers.4.5.0.nupkg.sha512",
+    "C:\\Users\\LuisC\\.nuget\\packages\\system.io.ports\\6.0.0\\system.io.ports.6.0.0.nupkg.sha512",
     "C:\\Users\\LuisC\\.nuget\\packages\\system.memory\\4.5.1\\system.memory.4.5.1.nupkg.sha512",
     "C:\\Users\\LuisC\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.1\\system.runtime.compilerservices.unsafe.4.5.1.nupkg.sha512",
     "C:\\Users\\LuisC\\.nuget\\packages\\system.security.cryptography.cng\\4.7.0\\system.security.cryptography.cng.4.7.0.nupkg.sha512",
     "C:\\Users\\LuisC\\.nuget\\packages\\system.security.cryptography.pkcs\\4.7.0\\system.security.cryptography.pkcs.4.7.0.nupkg.sha512",
     "C:\\Users\\LuisC\\.nuget\\packages\\system.text.encodings.web\\4.5.0\\system.text.encodings.web.4.5.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1603",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "iot_agent depends on System.IO.Ports (>= 5.0.2) but System.IO.Ports 5.0.2 was not found. An approximate best match of System.IO.Ports 6.0.0 was resolved.",
+      "libraryId": "System.IO.Ports",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    }
+  ]
 }

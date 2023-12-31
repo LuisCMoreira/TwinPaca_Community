@@ -54,6 +54,10 @@
               "target": "Package",
               "version": "[3.0.16, )"
             },
+            "NModbus": {
+              "target": "Package",
+              "version": "[3.0.72, )"
+            },
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.2-beta3, )"
@@ -69,6 +73,10 @@
             "Serilog.Sinks.Console": {
               "target": "Package",
               "version": "[4.1.0, )"
+            },
+            "System.IO.Ports": {
+              "target": "Package",
+              "version": "[5.0.2, )"
             }
           },
           "imports": [

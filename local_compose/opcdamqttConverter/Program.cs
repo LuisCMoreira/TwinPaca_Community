@@ -1,4 +1,6 @@
-﻿var DAgetter = new DAgent.opcDAget("OPCDA");
+﻿var modbusGet =new  modbusTCPget.ModbusHandler("modbusTCP");
+
+var DAgetter = new DAgent.opcDAget("OPCDA");
 var mPUB = new Magent.mqttPUB("MQTT");
 //var certt = new MQTTNet_AWS.awsCertConvertion("certs");
 var config = new jsonReadSpace.JConfig("agentConfig.json");
@@ -7,7 +9,7 @@ var deviceType = "unconfig";
 var deviceID = "unconfig";
 var manufacturerName = "unconfig";
 var serialNo = "unconfig";
-var taskRate = 1000;
+var taskRate = 500;
 var mqttIP = "localhost";
 var mqttPort = 1883;
 var mqttClientID = "unconfig";
@@ -31,11 +33,31 @@ var daClient = DAgetter.DAclient(opcdaIP, opcdaServer, opcdaVars);
 
 while (true)
 {
-    DAgetter.opcdaGet(daClient);
+    //DAgetter.opcdaGet(daClient);
 
-    mPUB.pubTopic(DAgetter.outget, deviceType, deviceID, manufacturerName, serialNo,  mqttBeaconMsg);
+    //mPUB.pubTopic(DAgetter.outget, deviceType, deviceID, manufacturerName, serialNo,  mqttBeaconMsg);
 
     Thread.Sleep(taskRate);
+
+    // Get Modbus data
+    List<Object[]> modbusData = modbusGet.ModbusTCPget("localhost", 502);
+
+    // Process or use the Modbus data as needed
+    // For example, you can iterate through the list and do something with each entry
+
+    foreach (var entry in modbusData)
+    {
+        // Access the Modbus data (entry[0] is the register address, entry[1] is the data value)
+        string registerAddress = (string)entry[0];
+        string dataValue = (string)entry[1];
+
+        // Your logic to process or use the Modbus data goes here
+        // ...
+
+        // For demonstration, you can print the data to the console
+        Console.WriteLine($"Register {registerAddress}: {dataValue}");
+    }
+
 }
 
 
