@@ -7,70 +7,80 @@ namespace modbusTCPget
 {
     class ModbusHandler
     {
+        private bool isConnected;
+        
+        
+
         public ModbusHandler(string name)
         {
             this.name = name;
-            outget = new List<Object[]>();
+            outgetModbus = new List<Object[]>();
+            
+            isConnected = false;
+            
+    
+   
+
         }
 
+public IModbusMaster MBclient(string ipAddress, int port)
+{
+TcpClient tcpClient = new TcpClient(ipAddress, port);
 
-        public List<Object[]>? ModbusTCPget(string ipAddress, int port, List<object> modbusList)
+ModbusFactory modbusFactory = new ModbusFactory();
+IModbusMaster modbusMaster=modbusFactory.CreateMaster(tcpClient);       
+
+return modbusMaster;
+}
+
+
+        public List<Object[]>? ModbusTCPget(IModbusMaster modbusMaster, List<object> modbusList)
         {
         
 
 
-            if (modbusList == null || ipAddress == null || port == 0 )
+            if (modbusList == null || modbusMaster == null )
             {
                 return null;
             }
 
 
-
+outgetModbus.Clear();
 
 
             // Replace these values with the actual Modbus address and number of coils to read
+            object? TypeOfObject = modbusList[0].GetType().GetProperty("TypeOf")?.GetValue(modbusList[0]);
             object? startObject = modbusList[0].GetType().GetProperty("Start")?.GetValue(modbusList[0]);
             object? numObject = modbusList[0].GetType().GetProperty("Address")?.GetValue(modbusList[0]);
-            if (startObject!=null && numObject!=null)
+            if (startObject!=null && numObject!=null && TypeOfObject!=null)
             {
+            string TypeOf = (string)(object)TypeOfObject;
             ushort startCoil = (ushort)(int)startObject;
             ushort numCoils = (ushort)(int)numObject;
       
-            
-            
             try
             {
 
 
-
-                // Create a Modbus TCP master using TcpClient
-                using (TcpClient tcpClient = new TcpClient(ipAddress, port))
-                {
-                    ModbusFactory modbusFactory = new ModbusFactory();
-                    Console.WriteLine("Connecting");
-                    IModbusMaster modbusMaster=modbusFactory.CreateMaster(tcpClient);
-             
-               
-
+ 
                 // Read coils from the Modbus server
-                bool[] data = modbusMaster.ReadCoils(1, 1, 1);
-                
+                bool[] data = modbusMaster.ReadCoils(0, startCoil, numCoils);
 
                 // Display the received data
                 for (int i = 0; i < data.Length; i++)
                 {
-                    Console.WriteLine($"Coil {startCoil + i}: {data[i]}");
+                    Console.WriteLine($"{TypeOf} {startCoil + i}: {data[i]}");
 
                     // Store the data in the output list as an array
-                    outget.Add(new Object[] { (startCoil + i).ToString(), (data[i]).ToString() });
+                    outgetModbus.Add(new Object[] { (TypeOf).ToString(),(startCoil + i).ToString(), (data[i]).ToString() });
                 }
 
                 // Return the data
-                return outget;
+                return outgetModbus;
 
 
 
-                }   
+                  
 
             }
             catch (Exception ex)
@@ -89,7 +99,7 @@ namespace modbusTCPget
         }
 
         public string name;
-        public List<Object[]> outget;
+        public List<Object[]> outgetModbus;
     }
 }
 

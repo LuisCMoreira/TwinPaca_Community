@@ -29,6 +29,8 @@ mPUB.startMQTTclient(mqttIP, mqttPort, mqttClientID);
 
 var daClient = DAgetter.DAclient(opcdaIP, opcdaServer, opcdaVars);
 
+var mbClient= modbusGet.MBclient("localhost", 502);
+
 
 
 /// <summary>
@@ -60,23 +62,27 @@ while (true)
 
     // Get Modbus data
  
-    List<object[]>? modbusData = modbusGet.ModbusTCPget("localhost", 502, modbusList);
+    List<object[]>? modbusData = modbusGet.ModbusTCPget( mbClient, modbusList);
 
     // Process or use the Modbus data as needed
     // For example, you can iterate through the list and do something with each entry
-
+if (modbusData!=null)
+{
     foreach (var entry in modbusData)
     {
         // Access the Modbus data (entry[0] is the register address, entry[1] is the data value)
-        string registerAddress = (string)entry[0];
-        string dataValue = (string)entry[1];
+        string dataType = (string)entry[0];
+        string registerAddress = (string)entry[1];
+        string dataValue = (string)entry[2];
+        
 
         // Your logic to process or use the Modbus data goes here
         // ...
 
         // For demonstration, you can print the data to the console
-        Console.WriteLine($"Register {registerAddress}: {dataValue}");
+        Console.WriteLine($"{dataType} {registerAddress}: {dataValue}");
     }
+}
 
 }
 
