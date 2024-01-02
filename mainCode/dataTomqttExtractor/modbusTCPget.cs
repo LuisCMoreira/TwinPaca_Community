@@ -13,22 +13,48 @@ namespace modbusTCPget
             outget = new List<Object[]>();
         }
 
-        public List<Object[]> ModbusTCPget(string ipAddress, int port)
-        {
-            // Create a Modbus TCP master
-            TcpClient tcpClient = new TcpClient(ipAddress, port);
 
-            ModbusFactory modbusFactory = new ModbusFactory();
-            IModbusMaster modbusMaster = modbusFactory.CreateMaster(tcpClient);
+        public List<Object[]>? ModbusTCPget(string ipAddress, int port, List<object> modbusList)
+        {
+        
+
+
+            if (modbusList == null || ipAddress == null || port == 0 )
+            {
+                return null;
+            }
+
+
+
+
 
             // Replace these values with the actual Modbus address and number of coils to read
-            ushort startCoil = 1;
-            ushort numCoils = 1;  // Replace with the actual number of coils to read
-
+            object? startObject = modbusList[0].GetType().GetProperty("Start")?.GetValue(modbusList[0]);
+            object? numObject = modbusList[0].GetType().GetProperty("Address")?.GetValue(modbusList[0]);
+            if (startObject!=null && numObject!=null)
+            {
+            ushort startCoil = (ushort)(int)startObject;
+            ushort numCoils = (ushort)(int)numObject;
+      
+            
+            
             try
             {
+
+
+
+                // Create a Modbus TCP master using TcpClient
+                using (TcpClient tcpClient = new TcpClient(ipAddress, port))
+                {
+                    ModbusFactory modbusFactory = new ModbusFactory();
+                    Console.WriteLine("Connecting");
+                    IModbusMaster modbusMaster=modbusFactory.CreateMaster(tcpClient);
+             
+               
+
                 // Read coils from the Modbus server
-                bool[] data = modbusMaster.ReadCoils(1, startCoil,numCoils);// .ReadCoils(startCoil, numCoils);
+                bool[] data = modbusMaster.ReadCoils(1, 1, 1);
+                
 
                 // Display the received data
                 for (int i = 0; i < data.Length; i++)
@@ -36,11 +62,16 @@ namespace modbusTCPget
                     Console.WriteLine($"Coil {startCoil + i}: {data[i]}");
 
                     // Store the data in the output list as an array
-                    outget.Add(new Object[] { (startCoil + i).ToString(),( data[i]).ToString() });
+                    outget.Add(new Object[] { (startCoil + i).ToString(), (data[i]).ToString() });
                 }
 
                 // Return the data
                 return outget;
+
+
+
+                }   
+
             }
             catch (Exception ex)
             {
@@ -49,17 +80,16 @@ namespace modbusTCPget
                 // Return an empty list in case of an error
                 return new List<Object[]>();
             }
-            finally
-            {
-                // Dispose of the Modbus master (if it implements IDisposable)
-                if (modbusMaster is IDisposable disposableMaster)
-                {
-                    disposableMaster.Dispose();
-                }
             }
+            else
+            {
+                return null;
+            }
+
         }
 
         public string name;
         public List<Object[]> outget;
     }
 }
+

@@ -9,7 +9,7 @@ var deviceType = "unconfig";
 var deviceID = "unconfig";
 var manufacturerName = "unconfig";
 var serialNo = "unconfig";
-var taskRate = 500;
+var taskRate = 100;
 var mqttIP = "localhost";
 var mqttPort = 1883;
 var mqttClientID = "unconfig";
@@ -31,6 +31,23 @@ var daClient = DAgetter.DAclient(opcdaIP, opcdaServer, opcdaVars);
 
 
 
+/// <summary>
+/// ///////////////////////////////////////////////
+/// </summary>
+/// <value></value>
+       List<object>? modbusList = new List<object>
+        {
+            new { TypeOf = "Coil", Address = 1, Start = 1 },
+            new { TypeOf = "Coil", Address = 2, Start = 1 },
+            new { TypeOf = "Coil", Address = 3, Start = 1 }
+        };
+
+/// <summary>
+/// ///////////////////////////////////////////////
+/// </summary>
+/// <value></value>
+
+
 while (true)
 {
     //DAgetter.opcdaGet(daClient);
@@ -39,8 +56,11 @@ while (true)
 
     Thread.Sleep(taskRate);
 
+ 
+
     // Get Modbus data
-    List<Object[]> modbusData = modbusGet.ModbusTCPget("localhost", 502);
+ 
+    List<object[]>? modbusData = modbusGet.ModbusTCPget("localhost", 502, modbusList);
 
     // Process or use the Modbus data as needed
     // For example, you can iterate through the list and do something with each entry
