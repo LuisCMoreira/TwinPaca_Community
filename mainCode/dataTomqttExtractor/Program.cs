@@ -1,11 +1,18 @@
-﻿var modbusGet =new  modbusTCPget.ModbusHandler("modbusTCP");
+﻿
+//using jsonImport;
+
+
+using dataTomqttExtractor;
+
+var modbusGet =new  modbusTCPget.ModbusHandler("modbusTCP");
 
 var DAgetter = new DAgent.opcDAget("OPCDA");
 var mPUB = new Magent.mqttPUB("MQTT");
 //var certt = new MQTTNet_AWS.awsCertConvertion("certs");
 var config = new jsonReadSpace.JConfig("agentConfig.json");
 
-var deviceType = "unconfig";
+
+var deviceType = jsonImport.deviceType;//"unconfig";
 var deviceID = "unconfig";
 var manufacturerName = "unconfig";
 var serialNo = "unconfig";
