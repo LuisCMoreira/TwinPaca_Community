@@ -1,5 +1,5 @@
 {
-  "TimeInMillis": 5000,
+  "TimeInMillis": 100,
   "DeviceType": "IoT/myDevice_V0",
   "DeviceID": "someId",
   "ManufacturerName" : "Some Brand",

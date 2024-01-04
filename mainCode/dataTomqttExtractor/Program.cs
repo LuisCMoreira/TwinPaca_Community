@@ -9,7 +9,7 @@ var deviceType = "unconfig";
 var deviceID = "unconfig";
 var manufacturerName = "unconfig";
 var serialNo = "unconfig";
-var taskRate = 100;
+var taskRate = 1000;
 var mqttIP = "localhost";
 var mqttPort = 1883;
 var mqttClientID = "unconfig";
@@ -39,9 +39,9 @@ var mbClient= modbusGet.MBclient("localhost", 502);
 /// <value></value>
        List<object>? modbusList = new List<object>
         {
-            new { TypeOf = "Coil", Address = 1, Start = 1 },
-            new { TypeOf = "Coil", Address = 2, Start = 1 },
-            new { TypeOf = "Coil", Address = 3, Start = 1 }
+            new { TypeOf = "Coil", Address = 1, Start = 1, varName= "testVar1" },
+            new { TypeOf = "Coil", Address = 2, Start = 1, varName= "testVar2"  },
+            new { TypeOf = "Register", Address = 10, Start = 1, varName= "testVar3"  }
         };
 
 /// <summary>
@@ -56,13 +56,15 @@ while (true)
 
     //mPUB.pubTopic(DAgetter.outget, deviceType, deviceID, manufacturerName, serialNo,  mqttBeaconMsg);
 
-    Thread.Sleep(taskRate);
+   Thread.Sleep(taskRate);
 
- 
+
 
     // Get Modbus data
  
     List<object[]>? modbusData = modbusGet.ModbusTCPget( mbClient, modbusList);
+
+    
 
     // Process or use the Modbus data as needed
     // For example, you can iterate through the list and do something with each entry
@@ -70,6 +72,7 @@ if (modbusData!=null)
 {
     foreach (var entry in modbusData)
     {
+      
         // Access the Modbus data (entry[0] is the register address, entry[1] is the data value)
         string dataType = (string)entry[0];
         string registerAddress = (string)entry[1];
