@@ -1,8 +1,4 @@
-﻿
-//using jsonImport;
-
-
-using dataTomqttExtractor;
+﻿using dataTomqttExtractor;
 
 var modbusGet =new  modbusTCPget.ModbusHandler("modbusTCP");
 
@@ -12,29 +8,21 @@ var mPUB = new Magent.mqttPUB("MQTT");
 var config = new jsonReadSpace.JConfig("agentConfig.json");
 
 
-var deviceType = jsonImport.deviceType;//"unconfig";
-var deviceID = "unconfig";
-var manufacturerName = "unconfig";
-var serialNo = "unconfig";
+
 var taskRate = 1000;
-var mqttIP = "localhost";
-var mqttPort = 1883;
-var mqttClientID = "unconfig";
-var mqttBeaconMsg = "";
-var mqttUseCert = false;
 
-List<string> opcdaVars = new List<string>() { };
-var opcdaIP = "localhost";
-var opcdaServer = "Matrikon.OPC.Simulation.1";
+taskRate = setupFromJSON(config, ref jsonImport.deviceType, ref jsonImport.deviceID, ref jsonImport.manufacturerName, ref jsonImport.serialNo, ref jsonImport.mqttIP, ref jsonImport.mqttPort, ref jsonImport.mqttClientID,ref jsonImport.mqttBeaconMsg, ref jsonImport.mqttUseCert, ref jsonImport.opcdaVars, ref jsonImport.opcdaIP, ref jsonImport.opcdaServer, ref jsonImport.modbusIP, ref jsonImport.modbusPort, ref jsonImport.modbusVars);
 
-taskRate = setupFromJSON(config, ref deviceType, ref deviceID, ref manufacturerName, ref serialNo, ref mqttIP, ref mqttPort, ref mqttClientID,ref mqttBeaconMsg, ref mqttUseCert, ref opcdaVars, ref opcdaIP, ref opcdaServer);
+
+//var certt = new MQTTNet_AWS.awsCertConvertion("certs");
 
 //var mqttcert = certt.certTask();
 
 //mPUB.startMQTTclient(mqttIP, mqttPort, mqttClientID, mqttUseCert, mqttcert);
-mPUB.startMQTTclient(mqttIP, mqttPort, mqttClientID);
 
-var daClient = DAgetter.DAclient(opcdaIP, opcdaServer, opcdaVars);
+mPUB.startMQTTclient(jsonImport.mqttIP, jsonImport.mqttPort, jsonImport.mqttClientID);
+
+var daClient = DAgetter.DAclient(jsonImport.opcdaIP, jsonImport.opcdaServer, jsonImport.opcdaVars);
 
 var mbClient= modbusGet.MBclient("localhost", 502);
 
@@ -59,7 +47,7 @@ var mbClient= modbusGet.MBclient("localhost", 502);
 
 while (true)
 {
-    //DAgetter.opcdaGet(daClient);
+    DAgetter.opcdaGet(daClient);
 
     //mPUB.pubTopic(DAgetter.outget, deviceType, deviceID, manufacturerName, serialNo,  mqttBeaconMsg);
 
@@ -69,7 +57,7 @@ while (true)
 
     // Get Modbus data
  
-    List<object[]>? modbusData = modbusGet.ModbusTCPget( mbClient, modbusList);
+    List<object[]>? modbusData = modbusGet.ModbusTCPget( mbClient, jsonImport.modbusVars);
 
     
 
@@ -97,7 +85,7 @@ if (modbusData!=null)
 }
 
 
-static int setupFromJSON(jsonReadSpace.JConfig config, ref string deviceType,ref string deviceID,ref string manufacturerName,ref string serialNo, ref string mqttIP, ref int mqttPort, ref string mqttClientID, ref string mqttBeaconMsg, ref bool mqttUseCert, ref List<string> opcdaVars, ref string opcdaIP, ref string opcdaServer)
+static int setupFromJSON(jsonReadSpace.JConfig config, ref string deviceType,ref string deviceID,ref string manufacturerName,ref string serialNo, ref string mqttIP, ref int mqttPort, ref string mqttClientID, ref string mqttBeaconMsg, ref bool mqttUseCert, ref List<string> opcdaVars, ref string opcdaIP, ref string opcdaServer, ref string modbusIP, ref int modbusPort, ref List<object>? modbusVars)
 {
     int taskRate;
     Console.Clear();
@@ -133,8 +121,30 @@ static int setupFromJSON(jsonReadSpace.JConfig config, ref string deviceType,ref
         }
     }
 
+
+    if (config.AgentconfigVars.modbus != null)
+    {
+        modbusIP = config.AgentconfigVars.modbus.IP_address;
+        modbusPort = config.AgentconfigVars.modbus.port;
+        if (config.AgentconfigVars.modbus.variablesToGet != null)
+        {
+        
+
+         modbusVars = new List<object>
+        {
+            new { TypeOf = config.AgentconfigVars.modbus.variablesToGet[0].TypeOf, 
+            Address = config.AgentconfigVars.modbus.variablesToGet[0].Address, 
+            Start = config.AgentconfigVars.modbus.variablesToGet[0].Start, 
+            varName= config.AgentconfigVars.modbus.variablesToGet[0].varName }
+        };
+        }
+    }
+
+
     Console.WriteLine(" \n press any key to start \n ");
     Console.ReadKey();
     Console.Clear();
     return taskRate;
 }
+
+  

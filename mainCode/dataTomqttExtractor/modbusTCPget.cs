@@ -34,7 +34,7 @@ namespace modbusTCPget
         }
 
 
-        public List<Object[]> ModbusTCPget(IModbusMaster modbusMaster, List<object> modbusList)
+        public List<Object[]> ModbusTCPget(IModbusMaster modbusMaster, List<object>? modbusList)
         {
 
             outgetModbus.Clear();
