@@ -28,27 +28,14 @@ var mbClient= modbusGet.MBclient("localhost", 502);
 
 
 
-/// <summary>
-/// ///////////////////////////////////////////////
-/// </summary>
-/// <value></value>
-       List<object>? modbusList = new List<object>
-        {
-            new { TypeOf = "Coil", Address = 1, Start = 1, varName= "testVar1" },
-            new { TypeOf = "Coil", Address = 2, Start = 1, varName= "testVar2"  },
-            new { TypeOf = "Register", Address = 10, Start = 1, varName= "testVar3"  }
-        };
-
-/// <summary>
-/// ///////////////////////////////////////////////
-/// </summary>
-/// <value></value>
 
 
 while (true)
 {
     DAgetter.opcdaGet(daClient);
 
+
+Console.WriteLine($"...{DAgetter.outget}...");
     //mPUB.pubTopic(DAgetter.outget, deviceType, deviceID, manufacturerName, serialNo,  mqttBeaconMsg);
 
    Thread.Sleep(taskRate);
@@ -58,6 +45,8 @@ while (true)
     // Get Modbus data
  
     List<object[]>? modbusData = modbusGet.ModbusTCPget( mbClient, jsonImport.modbusVars);
+
+    mPUB.pubTopic(modbusData, jsonImport.deviceType, jsonImport.deviceID, jsonImport.manufacturerName, jsonImport.serialNo,  jsonImport.mqttBeaconMsg);
 
     
 
@@ -69,16 +58,16 @@ if (modbusData!=null)
     {
       
         // Access the Modbus data (entry[0] is the register address, entry[1] is the data value)
-        string dataType = (string)entry[0];
-        string registerAddress = (string)entry[1];
-        string dataValue = (string)entry[2];
+       
+        string register = (string)entry[0];
+        string dataValue = (string)entry[1];
         
 
         // Your logic to process or use the Modbus data goes here
         // ...
 
         // For demonstration, you can print the data to the console
-        Console.WriteLine($"{dataType} {registerAddress}: {dataValue}");
+        Console.WriteLine($"{register}: {dataValue}");
     }
 }
 
@@ -129,14 +118,27 @@ static int setupFromJSON(jsonReadSpace.JConfig config, ref string deviceType,ref
         if (config.AgentconfigVars.modbus.variablesToGet != null)
         {
         
-
          modbusVars = new List<object>
+         {
+
+         };
+
+
+        foreach (var modbusVTG in config.AgentconfigVars.modbus.variablesToGet)
         {
-            new { TypeOf = config.AgentconfigVars.modbus.variablesToGet[0].TypeOf, 
-            Address = config.AgentconfigVars.modbus.variablesToGet[0].Address, 
-            Start = config.AgentconfigVars.modbus.variablesToGet[0].Start, 
-            varName= config.AgentconfigVars.modbus.variablesToGet[0].varName }
+            modbusVars.Add(new { modbusVTG.TypeOf, 
+                modbusVTG.Address, 
+                modbusVTG.Start, 
+                modbusVTG.varName  });
+
         };
+
+
+
+
+
+
+
         }
     }
 

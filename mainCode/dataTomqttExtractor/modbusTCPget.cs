@@ -69,7 +69,7 @@ namespace modbusTCPget
                         bool[] data = modbusMaster.ReadCoils(0, startCoil, numCoils);
         
                         // Store the data in the output list as an array
-                        outgetModbus.Add(new Object[] { (TypeOf), (startCoil).ToString(), (data[0]).ToString() });
+                        outgetModbus.Add(new Object[] {  (TypeOf) + "_" + (startCoil).ToString(), (data[0]).ToString() });
                         }
 
 
@@ -79,7 +79,7 @@ namespace modbusTCPget
                         ushort[] data = modbusMaster.ReadHoldingRegisters(0,startCoil,numCoils);
         
                         // Store the data in the output list as an array
-                        outgetModbus.Add(new Object[] { (TypeOf), (startCoil).ToString(), (data[0]).ToString() });
+                        outgetModbus.Add(new Object[] {  (TypeOf) + "_" + (startCoil).ToString(), (data[0]).ToString() });
                         }
 
                     }

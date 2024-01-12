@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Mh7ySbQMjaLPkuftdergj3Yh+kd2elZpRXx9e0ANHJIqkkW1K4wbtgkzSK1gkdgXtjLwyHkGNq/dAifXOkexxQ==",
+  "dgSpecHash": "fmkD3wgqRK6FPxzxqye4mi+yllnGaACIUlBKOq78ZsQqDx7H0ypcTOcUVE3sKA++FLGSGTgseuYbeeMFeVBiWA==",
   "success": true,
   "projectFilePath": "C:\\Users\\LuisC\\Desktop\\githubProjects\\vTwinPack_framework\\mainCode\\dataTomqttExtractor\\iot_agent.csproj",
   "expectedPackageFiles": [
