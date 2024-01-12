@@ -259,5 +259,8 @@ namespace Magent
         public IManagedMqttClient _mqttClient;
 
         public ManagedMqttClientOptions options;
+
+        
+
     }
 }

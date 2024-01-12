@@ -125,7 +125,8 @@ public List<Object[]> opcdaGet(IOpcDaClient? client)
         }
 
         public string name;
-        public List<Object[]> outget;
 
+        public List<Object[]> outget;
+        
     }
 }
