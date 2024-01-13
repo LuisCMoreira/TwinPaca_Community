@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "GKIvArE2xfOOfJWXeg29O0v8uPd7oTuk9YzHE2sirgrLt4ejfCISieAQBRjruj1xnCs932TtR8zHM+H6xZW8Ug==",
+  "dgSpecHash": "s+n6K40EncVyzQVR5MDB5tqb6zYazkMm0uGWwsZ7Oje/G9EfJuetZqyd1N68H7bZx2EXOwOZCf3MSAir4GUYCQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\LuisC\\Desktop\\githubProjects\\vTwinPack_framework\\local_compose\\dataManager\\dataManager.csproj",
+  "projectFilePath": "C:\\Users\\LuisC\\Desktop\\githubProjects\\vTwinPack_framework\\mainCode\\dataManager\\dataManager.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\LuisC\\.nuget\\packages\\awssdk.core\\3.7.100.14\\awssdk.core.3.7.100.14.nupkg.sha512",
     "C:\\Users\\LuisC\\.nuget\\packages\\awssdk.securitytoken\\3.7.100.14\\awssdk.securitytoken.3.7.100.14.nupkg.sha512",

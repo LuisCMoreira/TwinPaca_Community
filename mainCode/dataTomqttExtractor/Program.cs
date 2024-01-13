@@ -33,15 +33,20 @@ while (true)
 {
     DAgetter.opcdaGet(daClient);
 
+    mPUB.mqttMsgUpdate(DAgetter.outgetOPCDA, "");
+
     modbusGet.ModbusTCPget( mbClient, jsonImport.modbusVars);
 
+    mPUB.mqttMsgUpdate(modbusGet.outgetModbus, "");
 
-    mPUB.pubTopic(DAgetter.outget, jsonImport.deviceType, jsonImport.deviceID, jsonImport.manufacturerName, jsonImport.serialNo,  jsonImport.mqttBeaconMsg);
+
+    mPUB.pubTopic(mPUB.outToMQTT, jsonImport.deviceType, jsonImport.deviceID, jsonImport.manufacturerName, jsonImport.serialNo,  jsonImport.mqttBeaconMsg);
 
 
    Thread.Sleep(taskRate);
 
-    mPUB.pubTopic(modbusGet.outgetModbus, jsonImport.deviceType, jsonImport.deviceID, jsonImport.manufacturerName, jsonImport.serialNo,  jsonImport.mqttBeaconMsg);
 
 }
+
+
 

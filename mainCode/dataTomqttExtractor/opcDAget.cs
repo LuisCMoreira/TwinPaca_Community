@@ -8,7 +8,7 @@ namespace DAgent
         public opcDAget(string name)
             {
                 this.name = name;
-                outget = new List<Object[]>();
+                outgetOPCDA = new List<Object[]>();
 
                 
             } 
@@ -66,7 +66,7 @@ public List<Object[]> opcdaGet(IOpcDaClient? client)
 
                 if (client != null)
                 {
-                outget.Clear();
+                outgetOPCDA.Clear();
 
                 if (!client.Connected)
                 {client.Connect();}
@@ -91,7 +91,7 @@ public List<Object[]> opcdaGet(IOpcDaClient? client)
                                 
                             };
 
-                            outget.Add(aget);
+                            outgetOPCDA.Add(aget);
                         };
                 }
             }
@@ -100,9 +100,11 @@ public List<Object[]> opcdaGet(IOpcDaClient? client)
             //client.Dispose();
 
             }
-            return outget;
+            return outgetOPCDA;
 
 }
+
+
 
         public static void OnDataChangedHandler(DataChangedOutput output)
         {
@@ -126,7 +128,7 @@ public List<Object[]> opcdaGet(IOpcDaClient? client)
 
         public string name;
 
-        public List<Object[]> outget;
+        public List<Object[]> outgetOPCDA;
         
     }
 }

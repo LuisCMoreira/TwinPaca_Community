@@ -17,6 +17,8 @@ namespace Magent
         {
             this.name=name;
 
+            outToMQTT = new List<Object[]>();
+
             _mqttClient = new MqttFactory().CreateManagedMqttClient();
 
             options = new ManagedMqttClientOptions();
@@ -229,6 +231,8 @@ namespace Magent
             Console.WriteLine(" \n Message" + json);
             Console.WriteLine(" at " + DateTimeOffset.UtcNow +" \n ");
 
+            outToMQTT.Clear();
+
         }
 
         public void OnConnected(MqttClientConnectedEventArgs obj)
@@ -252,6 +256,20 @@ namespace Magent
             return new DateTimeOffset(convertedDate).ToUnixTimeMilliseconds();
         }
 
+
+public List<Object[]> mqttMsgUpdate(List<Object[]> inboundMSG, string? prefix)
+{
+
+foreach (Object[] objMsg in inboundMSG)
+{
+ outToMQTT.Add(objMsg);  
+
+}
+   
+   return outToMQTT;
+
+}
+
         public string name;
 
         public Dictionary<object, object> lastmsg;
@@ -260,7 +278,6 @@ namespace Magent
 
         public ManagedMqttClientOptions options;
 
-        
-
+        public List<Object[]> outToMQTT;
     }
 }
