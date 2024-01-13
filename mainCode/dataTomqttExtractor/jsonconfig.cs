@@ -102,80 +102,83 @@ namespace jsonReadSpace
 
         }
 
-public static int setupFromJSON(JConfig config, ref string deviceType,ref string deviceID,ref string manufacturerName,ref string serialNo, ref string mqttIP, ref int mqttPort, ref string mqttClientID, ref string mqttBeaconMsg, ref bool mqttUseCert, ref List<string> opcdaVars, ref string opcdaIP, ref string opcdaServer, ref string modbusIP, ref int modbusPort, ref List<object>? modbusVars)
-{
-    int taskRate;
-    Console.Clear();
-
-    config.Getinfo("agentConfig.json");
-
-    deviceType = config.AgentconfigVars.DeviceType;
-
-    deviceID = config.AgentconfigVars.DeviceID;
-
-    manufacturerName = config.AgentconfigVars.ManufacturerName;
-
-    serialNo  = config.AgentconfigVars.serialNo;
-
-    taskRate = config.AgentconfigVars.TimeInMillis;
-
-    if (config.AgentconfigVars.mqtt != null)
-    {
-        mqttIP = config.AgentconfigVars.mqtt.IP_address;
-        mqttPort = config.AgentconfigVars.mqtt.port;
-        mqttBeaconMsg = config.AgentconfigVars.mqtt.beaconMsg;
-        mqttUseCert = config.AgentconfigVars.mqtt.useCerts;
-    }
-
-
-    if (config.AgentconfigVars.opc_da != null)
-    {
-        opcdaIP = config.AgentconfigVars.opc_da.IP_address;
-        opcdaServer = config.AgentconfigVars.opc_da.server;
-        if (config.AgentconfigVars.opc_da.variablesToGet != null)
+        public static int setupFromJSON(JConfig config, ref string deviceType, ref string deviceID, ref string manufacturerName, ref string serialNo, ref string mqttIP, ref int mqttPort, ref string mqttClientID, ref string mqttBeaconMsg, ref bool mqttUseCert, ref List<string> opcdaVars, ref string opcdaIP, ref string opcdaServer, ref string modbusIP, ref int modbusPort, ref List<object>? modbusVars)
         {
-            opcdaVars = config.AgentconfigVars.opc_da.variablesToGet;
+            int taskRate;
+            Console.Clear();
+
+            config.Getinfo("agentConfig.json");
+
+            deviceType = config.AgentconfigVars.DeviceType;
+
+            deviceID = config.AgentconfigVars.DeviceID;
+
+            manufacturerName = config.AgentconfigVars.ManufacturerName;
+
+            serialNo = config.AgentconfigVars.serialNo;
+
+            taskRate = config.AgentconfigVars.TimeInMillis;
+
+            if (config.AgentconfigVars.mqtt != null)
+            {
+                mqttIP = config.AgentconfigVars.mqtt.IP_address;
+                mqttPort = config.AgentconfigVars.mqtt.port;
+                mqttBeaconMsg = config.AgentconfigVars.mqtt.beaconMsg;
+                mqttUseCert = config.AgentconfigVars.mqtt.useCerts;
+            }
+
+
+            if (config.AgentconfigVars.opc_da != null)
+            {
+                opcdaIP = config.AgentconfigVars.opc_da.IP_address;
+                opcdaServer = config.AgentconfigVars.opc_da.server;
+                if (config.AgentconfigVars.opc_da.variablesToGet != null)
+                {
+                    opcdaVars = config.AgentconfigVars.opc_da.variablesToGet;
+                }
+            }
+
+
+            if (config.AgentconfigVars.modbus != null)
+            {
+                modbusIP = config.AgentconfigVars.modbus.IP_address;
+                modbusPort = config.AgentconfigVars.modbus.port;
+                if (config.AgentconfigVars.modbus.variablesToGet != null)
+                {
+
+                    modbusVars = new List<object>
+                    {
+
+                    };
+
+
+                    foreach (var modbusVTG in config.AgentconfigVars.modbus.variablesToGet)
+                    {
+                        modbusVars.Add(new
+                        {
+                            modbusVTG.TypeOf,
+                            modbusVTG.Address,
+                            modbusVTG.Start,
+                            modbusVTG.varName
+                        });
+
+                    };
+
+
+
+
+
+
+
+                }
+            }
+
+
+            Console.WriteLine(" \n press any key to start \n ");
+            Console.ReadKey();
+            Console.Clear();
+            return taskRate;
         }
-    }
-
-
-    if (config.AgentconfigVars.modbus != null)
-    {
-        modbusIP = config.AgentconfigVars.modbus.IP_address;
-        modbusPort = config.AgentconfigVars.modbus.port;
-        if (config.AgentconfigVars.modbus.variablesToGet != null)
-        {
-        
-         modbusVars = new List<object>
-         {
-
-         };
-
-
-        foreach (var modbusVTG in config.AgentconfigVars.modbus.variablesToGet)
-        {
-            modbusVars.Add(new { modbusVTG.TypeOf, 
-                modbusVTG.Address, 
-                modbusVTG.Start, 
-                modbusVTG.varName  });
-
-        };
-
-
-
-
-
-
-
-        }
-    }
-
-
-    Console.WriteLine(" \n press any key to start \n ");
-    Console.ReadKey();
-    Console.Clear();
-    return taskRate;
-}
 
         public string jsonName;
 
@@ -233,5 +236,3 @@ public static int setupFromJSON(JConfig config, ref string deviceType,ref string
 
 
 }
-
-

@@ -28,10 +28,8 @@
     "IP_address": "localhost",
     "port": 502,
     "variablesToGet": [
-      {"TypeOf" : "Coil", "Address" : 1, "Start" : 1, "varName": "testVar1" },
-      {"TypeOf" : "Register", "Address" : 10, "Start" : 1, "varName": "testVar2"  }
+      {"TypeOf" : "Coil", "Address" : 1, "Qty" : 1, "varName": "testVar1" },
+      {"TypeOf" : "Register", "Address" : 10, "Qty" : 1, "varName": "testVar2"  }
     ]
   }
 }
-
-

@@ -15,7 +15,7 @@ namespace Magent
     {
         public mqttPUB(string name)
         {
-            this.name=name;
+            this.name = name;
 
             outToMQTT = new List<Object[]>();
 
@@ -25,10 +25,9 @@ namespace Magent
 
             lastmsg = new Dictionary<object, object>();
 
-           
         }
-    
-        public void startMQTTclient( string IP, int Port, string clientID, bool mqttUseCert, List<X509Certificate>? cert)
+
+        public void startMQTTclient(string IP, int Port, string clientID, bool mqttUseCert, List<X509Certificate>? cert)
         {
             Log.Logger = new LoggerConfiguration()
                 .MinimumLevel.Debug()
@@ -64,8 +63,8 @@ namespace Magent
                                             .WithTls(tlsOptions)
                                             ;
             };
-            
-            
+
+
             options = new ManagedMqttClientOptionsBuilder()
                                                 .WithAutoReconnectDelay(TimeSpan.FromSeconds(60))
                                                 .WithClientOptions(builder.Build())
@@ -82,12 +81,9 @@ namespace Magent
                 Log.Logger.Information("Message recieved: {payload}", a.ApplicationMessage);
             });
 
-
         }
 
-
-
-        public void startMQTTclient( string IP, int Port, string clientID)
+        public void startMQTTclient(string IP, int Port, string clientID)
         {
             Log.Logger = new LoggerConfiguration()
                 .MinimumLevel.Debug()
@@ -106,14 +102,12 @@ namespace Magent
                 .WithClientId(clientID)
                 .WithTcpServer(IP, Port)
                 ;
-            
-            
+
+
             options = new ManagedMqttClientOptionsBuilder()
                                                 .WithAutoReconnectDelay(TimeSpan.FromSeconds(60))
                                                 .WithClientOptions(builder.Build())
                                                 .Build();
-
-
 
             _mqttClient.ConnectedHandler = new MqttClientConnectedHandlerDelegate(OnConnected);
             _mqttClient.DisconnectedHandler = new MqttClientDisconnectedHandlerDelegate(OnDisconnected);
@@ -124,13 +118,9 @@ namespace Magent
                 Log.Logger.Information("Message recieved: {payload}", a.ApplicationMessage);
             });
 
-
         }
 
-
-
-
-        public void pubTopic(List<Object[]> msg, string deviceType, string  DeviceID,string  manufacturerName,string  serialNo, string  beaconMsg)
+        public void pubTopic(List<Object[]> msg, string deviceType, string DeviceID, string manufacturerName, string serialNo, string beaconMsg)
         {
 
             if (!_mqttClient.IsStarted)
@@ -139,100 +129,88 @@ namespace Magent
 
                 Console.WriteLine("MQTT Client Connected!!!");
 
-                
-                string jsonBeacon = (@"{ ""Connection Message"": """ + beaconMsg + " This is " + _mqttClient.Options.ClientOptions.ClientId + " connecting at " + DateTimeOffset.UtcNow ) + @"""," ;
-                
-                string jsonInfo = jsonBeacon + @" ""AgentVersion"": " + 4 + @" }"; 
-                
-                _mqttClient.PublishAsync(deviceType +"/" + DeviceID +"/devicesetup", jsonInfo);
+
+                string jsonBeacon = (@"{ ""Connection Message"": """ + beaconMsg + " This is " + _mqttClient.Options.ClientOptions.ClientId + " connecting at " + DateTimeOffset.UtcNow) + @""",";
+
+                string jsonInfo = jsonBeacon + @" ""AgentVersion"": " + 4 + @" }";
+
+                _mqttClient.PublishAsync(deviceType + "/" + DeviceID + "/devicesetup", jsonInfo);
 
                 string jsonAtrib = @"{ ""manufacturer"" : """ + manufacturerName + @""",  ""serialNo"" : """ + serialNo + @""" , ""lastConnectionTime"" : " + DateTimeOffset.UtcNow.ToUnixTimeMilliseconds() + "}";
-                                Console.WriteLine(jsonAtrib);
-                _mqttClient.PublishAsync(deviceType +"/" + DeviceID +"/atributes", jsonAtrib);
+                Console.WriteLine(jsonAtrib);
+                _mqttClient.PublishAsync(deviceType + "/" + DeviceID + "/atributes", jsonAtrib);
             }
 
-            
-        
             var json = @"{ ";
 
-             foreach (var singmsg in msg)
+            foreach (var singmsg in msg)
             {
                 bool checker = false;
 
                 try
                 {
-                    if  (Convert.ToBoolean(lastmsg[singmsg[0]]) == Convert.ToBoolean(singmsg[1]))
-                    {checker=true;}
+                    if (Convert.ToBoolean(lastmsg[singmsg[0]]) == Convert.ToBoolean(singmsg[1]))
+                    { checker = true; }
                 }
                 catch
-                {}
+                { }
 
                 try
                 {
-                    if  (Convert.ToDouble(lastmsg[singmsg[0]]) == Convert.ToDouble(singmsg[1]))
-                    {checker=true;}
+                    if (Convert.ToDouble(lastmsg[singmsg[0]]) == Convert.ToDouble(singmsg[1]))
+                    { checker = true; }
                 }
                 catch
-                {}
+                { }
 
-                if  (checker)
+                if (checker)
                 {
-                    Console.WriteLine(Convert.ToString(singmsg[0]) +  " did not changed since last message sent!");
+                    Console.WriteLine(Convert.ToString(singmsg[0]) + " did not changed since last message sent!");
                     //return;
                 }
                 else
                 {
-                try
-                {
+                    try
+                    {
 
-                try
-                {
-                json = json + @"""" + singmsg[0] + @""" :";
-                if (Convert.ToString(singmsg[1])=="False"){singmsg[1]="false";};
-                if (Convert.ToString(singmsg[1])=="True"){singmsg[1]="true";};
-                json = json + singmsg[1] + "," ;
+                        try
+                        {
+                            json = json + @"""" + singmsg[0] + @""" :";
+                            if (Convert.ToString(singmsg[1]) == "False") { singmsg[1] = "false"; };
+                            if (Convert.ToString(singmsg[1]) == "True") { singmsg[1] = "true"; };
+                            json = json + singmsg[1] + ",";
+                        }
+                        catch
+                        {
+                            json = json + @"""" + (singmsg[0]) + @""" :";
+                            json = json + Convert.ToString(singmsg[1]) + ",";
+                        }
+
+
+                        Console.WriteLine(singmsg[0] + " value is " + singmsg[1]);
+
+
+
+                        lastmsg[singmsg[0]] = singmsg[1];
+                    }
+                    catch
+                    {
+                        lastmsg.Add(singmsg[0], singmsg[1]);
+                    }
+
                 }
-                catch
-                {
-                json = json + @"""" + (singmsg[0]) + @""" :";
-                json = json + Convert.ToString(singmsg[1]) + "," ;
-                }
-
-
-                Console.WriteLine(singmsg[0] + " value is " + singmsg[1]);
-
-
-
-                lastmsg[singmsg[0]] = singmsg[1];   
-                }
-                catch
-                {
-                lastmsg.Add(singmsg[0],singmsg[1]);
-                }
-                
-
-                }
-                
-                
 
             }
-            
-            
-            
-            
-            
-            json = json +@"""MQTTtimeStamp"": " + DateTimeOffset.UtcNow.ToUnixTimeMilliseconds() +  "}";
 
-    
+            json = json + @"""MQTTtimeStamp"": " + DateTimeOffset.UtcNow.ToUnixTimeMilliseconds() + "}";
 
-            _mqttClient.PublishAsync(deviceType +"/" + DeviceID +"/features", json);
-            
-            Console.WriteLine(" \n Topic:" + deviceType +"/" + DeviceID +"/features");
+            _mqttClient.PublishAsync(deviceType + "/" + DeviceID + "/features", json);
+
+            Console.WriteLine(" \n Topic:" + deviceType + "/" + DeviceID + "/features");
             Console.WriteLine(" \n Message" + json);
-            Console.WriteLine(" at " + DateTimeOffset.UtcNow +" \n ");
+            Console.WriteLine(" at " + DateTimeOffset.UtcNow + " \n ");
 
             outToMQTT.Clear();
-
         }
 
         public void OnConnected(MqttClientConnectedEventArgs obj)
@@ -256,19 +234,18 @@ namespace Magent
             return new DateTimeOffset(convertedDate).ToUnixTimeMilliseconds();
         }
 
+        public List<Object[]> mqttMsgUpdate(List<Object[]> inboundMSG, string? prefix)
+        {
 
-public List<Object[]> mqttMsgUpdate(List<Object[]> inboundMSG, string? prefix)
-{
+            foreach (Object[] objMsg in inboundMSG)
+            {
+                outToMQTT.Add(objMsg);
 
-foreach (Object[] objMsg in inboundMSG)
-{
- outToMQTT.Add(objMsg);  
+            }
 
-}
-   
-   return outToMQTT;
+            return outToMQTT;
 
-}
+        }
 
         public string name;
 

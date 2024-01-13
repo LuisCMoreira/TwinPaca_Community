@@ -6,17 +6,15 @@ namespace DAgent
     class opcDAget
     {
         public opcDAget(string name)
-            {
-                this.name = name;
-                outgetOPCDA = new List<Object[]>();
+        {
+            this.name = name;
+            outgetOPCDA = new List<Object[]>();
+        }
 
-                
-            } 
-        
-public IOpcDaClient? DAclient(string IP,string serverName,List<string> TagsToGet)
-{
-        
-        var groups = new List<GroupData>
+        public IOpcDaClient? DAclient(string IP, string serverName, List<string> TagsToGet)
+        {
+
+            var groups = new List<GroupData>
             {
             new GroupData
                 {
@@ -33,14 +31,14 @@ public IOpcDaClient? DAclient(string IP,string serverName,List<string> TagsToGet
                 groups[0].Tags.Add(tag);
             }
 
-            if ( IP == null || serverName == null)
+            if (IP == null || serverName == null)
             {
                 Console.WriteLine("Missing opcDA config file!!!");
                 return null;
             }
             var server = new ServerData
             {
-                 
+
                 Host = IP,
                 ProgId = serverName,
                 // initial with data info,after connect will be add to client auto
@@ -58,53 +56,50 @@ public IOpcDaClient? DAclient(string IP,string serverName,List<string> TagsToGet
 
             return client;
 
+        }
 
-}
+        public List<Object[]> opcdaGet(IOpcDaClient? client)
+        {
 
-public List<Object[]> opcdaGet(IOpcDaClient? client)
-{
-
-                if (client != null)
-                {
+            if (client != null)
+            {
                 outgetOPCDA.Clear();
 
                 if (!client.Connected)
-                {client.Connect();}
-                
+                { client.Connect(); }
+
 
                 foreach (var group in client.Groups.Values)
-            {
-                if (group.Tags.Count == 0) continue;
-                var results = group.Reads(group.Tags.Values.Select(x => x.ItemName)?.ToArray());
-
-                
-                foreach (var item in results)
                 {
+                    if (group.Tags.Count == 0) continue;
+                    var results = group.Reads(group.Tags.Values.Select(x => x.ItemName)?.ToArray());
+
+
+                    foreach (var item in results)
+                    {
 
                         if (item.Result.Value != null)
                         {
-                            var aget= new String[]
+                            var aget = new String[]
                             {
                                 item.Result.ItemName.ToString(),
                                 null+item.Result.Value,
                                 null+item.Result.Timestamp
-                                
+
                             };
 
                             outgetOPCDA.Add(aget);
                         };
+                    }
                 }
-            }
 
-            //client.Disconnect();
-            //client.Dispose();
+                //client.Disconnect();
+                //client.Dispose();
 
             }
             return outgetOPCDA;
 
-}
-
-
+        }
 
         public static void OnDataChangedHandler(DataChangedOutput output)
         {
@@ -129,6 +124,6 @@ public List<Object[]> opcdaGet(IOpcDaClient? client)
         public string name;
 
         public List<Object[]> outgetOPCDA;
-        
+
     }
 }
