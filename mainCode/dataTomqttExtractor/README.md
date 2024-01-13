@@ -1,3 +1,10 @@
-# DTech_iot_agent
+# DATA EXTRATOR TO MQTT
 
-## This is a small software asset to get data from OPC-DA and send it to an MQTT broker
+## This is a software asset to get data from multiple data sources send it to an MQTT broker
+
+### Interfaces avalable to:
+- Modbus TCP
+- OPC-DA
+
+
+## Configurate agentConfig.json file with adequate parameters.

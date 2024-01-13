@@ -26,6 +26,7 @@ var mbClient = modbusGet.MBclient("localhost", 502);
 
 while (true)
 {
+    
     DAgetter.opcdaGet(daClient);
 
     mPUB.mqttMsgUpdate(DAgetter.outgetOPCDA, "");

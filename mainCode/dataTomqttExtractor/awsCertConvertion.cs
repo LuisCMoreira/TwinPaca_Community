@@ -21,15 +21,15 @@ namespace MQTTNet_AWS
 
         public awsCertConvertion(string name)
         {
-            this.name=name;
+            this.name = name;
             rootCertificateTrust = new RootCertificateTrust();
 
             deviceCertPEMString = "";
             devicePrivateCertPEMString = "";
-            certificateAuthorityCertPEMString = "";   
+            certificateAuthorityCertPEMString = "";
 
             certAWS = new List<X509Certificate>();
-            
+
         }
 
         private string name;
@@ -46,20 +46,20 @@ namespace MQTTNet_AWS
         {
             try
             {
-            deviceCertPEMString = File.ReadAllText(@".\certs\agent-certificate.pem.crt");  
-            devicePrivateCertPEMString = File.ReadAllText(@".\certs\agent-private.pem.key");
-            certificateAuthorityCertPEMString = File.ReadAllText(@".\certs\AmazonRootCA1.pem"); 
+                deviceCertPEMString = File.ReadAllText(@".\certs\agent-certificate.pem.crt");
+                devicePrivateCertPEMString = File.ReadAllText(@".\certs\agent-private.pem.key");
+                certificateAuthorityCertPEMString = File.ReadAllText(@".\certs\AmazonRootCA1.pem");
             }
             catch
             {
                 return null;
             }
-    
+
 
             // Create a new MQTT client.
             var factory = new MqttFactory();
             var mqttClient = factory.CreateMqttClient();
-                    
+
 
             //Converting from PEM to X509 certs in C# is hard
             //Load the CA certificate
@@ -114,13 +114,13 @@ namespace MQTTNet_AWS
         {
             certificates.Add(x509Certificate2);
         }
-       
+
         /// <summary>
         /// This matches the delegate signature expected for certificate verification for MQTTNet
         /// </summary>
         /// <param name="arg"></param>
         /// <returns></returns>
-        
+
         internal bool VerifyServerCertificate(MqttClientCertificateValidationCallbackContext arg) => VerifyServerCertificate(new object(), arg.Certificate, arg.Chain, arg.SslPolicyErrors);
 
         //internal bool VerifyServerCertificate(MqttClientCertificateValidationEventArgs arg) => VerifyServerCertificate(new object(), arg.Certificate, arg.Chain, arg.SslPolicyErrors);
