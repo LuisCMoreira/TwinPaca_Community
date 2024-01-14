@@ -1,0 +1,67 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "mainCode", "mainCode", "{50A24ECB-2560-4B31-8CB9-84BAF9059851}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dataManager", "mainCode\dataManager\dataManager.csproj", "{7D7CD2FD-7ECE-4BD5-9C4D-0EE53E0509FA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "iot_agent", "mainCode\dataTomqttExtractor\iot_agent.csproj", "{4174A445-83DA-432E-8711-29DDEF585ACD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IoTbotAPI", "mainCode\localAPI\IoTbotAPI.csproj", "{830CF59E-D4A4-4E0F-AD84-521885AE9F10}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "oldTests", "oldTests", "{D981A996-9E3A-47DA-8EDD-F9ECB11475F4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IoTmainFrameV0", "oldTests\IoTmainFrameV0\IoTmainFrameV0.csproj", "{63BBA56E-F4B8-4E51-B234-3D801BC31306}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "modbusmqttConverter", "oldTests\modbusmqttConverter\modbusmqttConverter.csproj", "{DF1EA283-8EDA-4EED-9DC0-28EEED9009A7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "socket-server", "oldTests\socket-server\socket-server.csproj", "{9A0A02A5-E311-4378-8C8A-9A7657C31737}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7D7CD2FD-7ECE-4BD5-9C4D-0EE53E0509FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D7CD2FD-7ECE-4BD5-9C4D-0EE53E0509FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D7CD2FD-7ECE-4BD5-9C4D-0EE53E0509FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D7CD2FD-7ECE-4BD5-9C4D-0EE53E0509FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4174A445-83DA-432E-8711-29DDEF585ACD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4174A445-83DA-432E-8711-29DDEF585ACD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4174A445-83DA-432E-8711-29DDEF585ACD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4174A445-83DA-432E-8711-29DDEF585ACD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{830CF59E-D4A4-4E0F-AD84-521885AE9F10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{830CF59E-D4A4-4E0F-AD84-521885AE9F10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{830CF59E-D4A4-4E0F-AD84-521885AE9F10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{830CF59E-D4A4-4E0F-AD84-521885AE9F10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63BBA56E-F4B8-4E51-B234-3D801BC31306}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63BBA56E-F4B8-4E51-B234-3D801BC31306}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63BBA56E-F4B8-4E51-B234-3D801BC31306}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63BBA56E-F4B8-4E51-B234-3D801BC31306}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF1EA283-8EDA-4EED-9DC0-28EEED9009A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF1EA283-8EDA-4EED-9DC0-28EEED9009A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF1EA283-8EDA-4EED-9DC0-28EEED9009A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF1EA283-8EDA-4EED-9DC0-28EEED9009A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A0A02A5-E311-4378-8C8A-9A7657C31737}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A0A02A5-E311-4378-8C8A-9A7657C31737}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A0A02A5-E311-4378-8C8A-9A7657C31737}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A0A02A5-E311-4378-8C8A-9A7657C31737}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7D7CD2FD-7ECE-4BD5-9C4D-0EE53E0509FA} = {50A24ECB-2560-4B31-8CB9-84BAF9059851}
+		{4174A445-83DA-432E-8711-29DDEF585ACD} = {50A24ECB-2560-4B31-8CB9-84BAF9059851}
+		{830CF59E-D4A4-4E0F-AD84-521885AE9F10} = {50A24ECB-2560-4B31-8CB9-84BAF9059851}
+		{63BBA56E-F4B8-4E51-B234-3D801BC31306} = {D981A996-9E3A-47DA-8EDD-F9ECB11475F4}
+		{DF1EA283-8EDA-4EED-9DC0-28EEED9009A7} = {D981A996-9E3A-47DA-8EDD-F9ECB11475F4}
+		{9A0A02A5-E311-4378-8C8A-9A7657C31737} = {D981A996-9E3A-47DA-8EDD-F9ECB11475F4}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3577EC7D-9F06-4C1F-99B9-BC9D5DA916C0}
+	EndGlobalSection
+EndGlobal

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "BR+7fM1g1eDTN6beGmvB2XwsHfvNrC0X5j6kSxZAuyLg2K4NRLxF3PTngeMpUqfIS7lefbBfn+0OLAlSFSE+Og==",
+  "dgSpecHash": "X9I3qdt5QBenv1T1oRlA0uYc2f74B2G32TiD8hkMqObHeAd8JXd+er6st/wJ3Zdwi8ytfwe+Kz4QuLuROL9iWA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\LuisC\\Desktop\\githubProjects\\TwinPaca_Community\\local_compose\\localAPI\\IoTbotAPI.csproj",
+  "projectFilePath": "C:\\Users\\LuisC\\Desktop\\githubProjects\\vTwinPack_framework\\mainCode\\localAPI\\IoTbotAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\LuisC\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.2\\microsoft.aspnetcore.openapi.7.0.2.nupkg.sha512",
     "C:\\Users\\LuisC\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.2\\microsoft.entityframeworkcore.7.0.2.nupkg.sha512",

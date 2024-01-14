@@ -91,7 +91,7 @@ namespace jsonReadSpace
                 {
                     foreach (var modbusvariable in varToGet)
                     {
-                        Console.WriteLine($"        Reading: {modbusvariable.TypeOf} : {modbusvariable.Address} : {modbusvariable.Start} : {modbusvariable.varName}  ");
+                        Console.WriteLine($"        Reading: {modbusvariable.TypeOf} : {modbusvariable.Address} | Qty : {modbusvariable.Qty} | Variable Name : {modbusvariable.varName}  ");
                     }
                 }
             }
@@ -158,7 +158,7 @@ namespace jsonReadSpace
                         {
                             modbusVTG.TypeOf,
                             modbusVTG.Address,
-                            modbusVTG.Start,
+                            modbusVTG.Qty,
                             modbusVTG.varName
                         });
 
@@ -173,10 +173,20 @@ namespace jsonReadSpace
                 }
             }
 
+            //Uncoment to Start after key press
+            //Console.WriteLine(" \n press any key to start \n ");
+            //Console.ReadKey();
 
-            Console.WriteLine(" \n press any key to start \n ");
-            Console.ReadKey();
+            //Start after time sleep
+            Console.WriteLine(" \n Starting in 5 seconds\n ");
+            Thread.Sleep(5000);
+
             Console.Clear();
+
+
+            Console.WriteLine(" \n Starting in \n ");
+            Thread.Sleep(1000);
+           
             return taskRate;
         }
 
@@ -230,7 +240,7 @@ namespace jsonReadSpace
     {
         public string TypeOf { get; set; } = "";
         public int Address { get; set; } = 1;
-        public int Start { get; set; } = 1;
+        public int Qty { get; set; } = 1;
         public string varName { get; set; } = "";
     }
 

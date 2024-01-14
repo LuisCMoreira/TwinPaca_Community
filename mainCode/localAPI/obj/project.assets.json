@@ -1040,11 +1040,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\LuisC\\Desktop\\githubProjects\\TwinPaca_Community\\local_compose\\localAPI\\IoTbotAPI.csproj",
+      "projectUniqueName": "C:\\Users\\LuisC\\Desktop\\githubProjects\\vTwinPack_framework\\mainCode\\localAPI\\IoTbotAPI.csproj",
       "projectName": "IoTbotAPI",
-      "projectPath": "C:\\Users\\LuisC\\Desktop\\githubProjects\\TwinPaca_Community\\local_compose\\localAPI\\IoTbotAPI.csproj",
+      "projectPath": "C:\\Users\\LuisC\\Desktop\\githubProjects\\vTwinPack_framework\\mainCode\\localAPI\\IoTbotAPI.csproj",
       "packagesPath": "C:\\Users\\LuisC\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\LuisC\\Desktop\\githubProjects\\TwinPaca_Community\\local_compose\\localAPI\\obj\\",
+      "outputPath": "C:\\Users\\LuisC\\Desktop\\githubProjects\\vTwinPack_framework\\mainCode\\localAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\LuisC\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -1107,7 +1107,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.115\\RuntimeIdentifierGraph.json"
       }
     }
   }

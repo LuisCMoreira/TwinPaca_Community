@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "91JLxbyIc06Mq7rz/sztBwOxcOUvrWd7q6aiTVVzp5QZ0cID58YYHAY7A7dVhNYh6nhgAfiufacJRcgAXHsGdQ==",
+  "dgSpecHash": "jwZ5oEH+jMHJr6UP1bqlVmuWOQvqgYQ0aHAKrpMGsx4IEwI7jOl1wpwnl0kbkTy/dpf5myVOpc4hdEUz+h5kfA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\LuisC\\Desktop\\githubProjects\\vTwinPack_framework\\local_compose\\modbusmqttConverter\\modbusmqttConverter\\modbusmqttConverter.csproj",
+  "projectFilePath": "C:\\Users\\LuisC\\Desktop\\githubProjects\\vTwinPack_framework\\oldTests\\modbusmqttConverter\\modbusmqttConverter.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

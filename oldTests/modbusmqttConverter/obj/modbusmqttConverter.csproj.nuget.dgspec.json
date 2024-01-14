@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\LuisC\\Desktop\\githubProjects\\vTwinPack_framework\\local_compose\\modbusmqttConverter\\modbusmqttConverter\\modbusmqttConverter.csproj": {}
+    "C:\\Users\\LuisC\\Desktop\\githubProjects\\vTwinPack_framework\\oldTests\\modbusmqttConverter\\modbusmqttConverter.csproj": {}
   },
   "projects": {
-    "C:\\Users\\LuisC\\Desktop\\githubProjects\\vTwinPack_framework\\local_compose\\modbusmqttConverter\\modbusmqttConverter\\modbusmqttConverter.csproj": {
+    "C:\\Users\\LuisC\\Desktop\\githubProjects\\vTwinPack_framework\\oldTests\\modbusmqttConverter\\modbusmqttConverter.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\LuisC\\Desktop\\githubProjects\\vTwinPack_framework\\local_compose\\modbusmqttConverter\\modbusmqttConverter\\modbusmqttConverter.csproj",
+        "projectUniqueName": "C:\\Users\\LuisC\\Desktop\\githubProjects\\vTwinPack_framework\\oldTests\\modbusmqttConverter\\modbusmqttConverter.csproj",
         "projectName": "modbusmqttConverter",
-        "projectPath": "C:\\Users\\LuisC\\Desktop\\githubProjects\\vTwinPack_framework\\local_compose\\modbusmqttConverter\\modbusmqttConverter\\modbusmqttConverter.csproj",
+        "projectPath": "C:\\Users\\LuisC\\Desktop\\githubProjects\\vTwinPack_framework\\oldTests\\modbusmqttConverter\\modbusmqttConverter.csproj",
         "packagesPath": "C:\\Users\\LuisC\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\LuisC\\Desktop\\githubProjects\\vTwinPack_framework\\local_compose\\modbusmqttConverter\\modbusmqttConverter\\obj\\",
+        "outputPath": "C:\\Users\\LuisC\\Desktop\\githubProjects\\vTwinPack_framework\\oldTests\\modbusmqttConverter\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\LuisC\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -53,7 +53,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.114\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.115\\RuntimeIdentifierGraph.json"
         }
       }
     }
