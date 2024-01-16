@@ -1,0 +1,35 @@
+{
+  "TimeInMillis": 5000,
+  "DeviceType": "IoT/myDevice_V0",
+  "DeviceID": "someId",
+  "ManufacturerName" : "Some Brand",
+  "serialNo" : "FAKE SN666", 
+  "mqtt": {
+    "mqttON": true,
+    "IP_address": "127.0.0.1",
+    "port": 1883,
+    "clientID" : "IoTAgent_Cid",
+    "beaconMsg": "Hello There!!!",
+    "useCerts": false
+  },
+  "opc_da": {
+    "opcdaON": true,
+    "IP_address": "127.0.0.1",
+    "server": "Matrikon.OPC.Simulation.1",
+    "variablesToGet": [
+      "Random.Boolean",
+      "Random.Int1",
+      "Saw-toothed Waves.Int4",
+      "Triangle Waves.UInt4"
+    ]
+  },
+  "modbus": {
+    "modbusON": true,
+    "IP_address": "127.0.0.1",
+    "port": 502,
+    "variablesToGet": [
+      {"TypeOf" : "Coil", "Address" : 1, "Qty" : 1, "varName": "testVar1" },
+      {"TypeOf" : "Register", "Address" : 10, "Qty" : 1, "varName": "testVar2"  }
+    ]
+  }
+}

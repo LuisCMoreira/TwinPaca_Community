@@ -274,3 +274,4 @@ C:\Users\LuisC\Desktop\githubProjects\vTwinPack_framework\mainCode\dataTomqttExt
 C:\Users\LuisC\Desktop\githubProjects\vTwinPack_framework\mainCode\dataTomqttExtractor\obj\Debug\net7.0\iot_agent.pdb
 C:\Users\LuisC\Desktop\githubProjects\vTwinPack_framework\mainCode\dataTomqttExtractor\obj\Debug\net7.0\iot_agent.genruntimeconfig.cache
 C:\Users\LuisC\Desktop\githubProjects\vTwinPack_framework\mainCode\dataTomqttExtractor\obj\Debug\net7.0\ref\iot_agent.dll
+C:\Users\LuisC\Desktop\githubProjects\vTwinPack_framework\mainCode\dataTomqttExtractor\bin\Debug\net7.0\agentConfig.json

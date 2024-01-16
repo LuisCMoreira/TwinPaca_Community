@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "fmkD3wgqRK6FPxzxqye4mi+yllnGaACIUlBKOq78ZsQqDx7H0ypcTOcUVE3sKA++FLGSGTgseuYbeeMFeVBiWA==",
+  "dgSpecHash": "+y6BghCyIPhB/4BYJWUGO4zoX1gaWvO83UgUCstk5cU5lwSQWCysE9S5gpBtupXoigupOtYbZDOPDPnxuO2uug==",
   "success": true,
   "projectFilePath": "C:\\Users\\LuisC\\Desktop\\githubProjects\\vTwinPack_framework\\mainCode\\dataTomqttExtractor\\iot_agent.csproj",
   "expectedPackageFiles": [
@@ -10,6 +10,7 @@
     "C:\\Users\\LuisC\\.nuget\\packages\\microsoft.aspnetcore.webutilities\\2.2.0\\microsoft.aspnetcore.webutilities.2.2.0.nupkg.sha512",
     "C:\\Users\\LuisC\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\LuisC\\.nuget\\packages\\microsoft.extensions.primitives\\2.2.0\\microsoft.extensions.primitives.2.2.0.nupkg.sha512",
+    "C:\\Users\\LuisC\\.nuget\\packages\\microsoft.net.build.containers\\0.3.2\\microsoft.net.build.containers.0.3.2.nupkg.sha512",
     "C:\\Users\\LuisC\\.nuget\\packages\\microsoft.net.http.headers\\2.2.0\\microsoft.net.http.headers.2.2.0.nupkg.sha512",
     "C:\\Users\\LuisC\\.nuget\\packages\\mqttnet\\3.0.16\\mqttnet.3.0.16.nupkg.sha512",
     "C:\\Users\\LuisC\\.nuget\\packages\\mqttnet.extensions.managedclient\\3.0.16\\mqttnet.extensions.managedclient.3.0.16.nupkg.sha512",
@@ -30,7 +31,8 @@
     "C:\\Users\\LuisC\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.1\\system.runtime.compilerservices.unsafe.4.5.1.nupkg.sha512",
     "C:\\Users\\LuisC\\.nuget\\packages\\system.security.cryptography.cng\\4.7.0\\system.security.cryptography.cng.4.7.0.nupkg.sha512",
     "C:\\Users\\LuisC\\.nuget\\packages\\system.security.cryptography.pkcs\\4.7.0\\system.security.cryptography.pkcs.4.7.0.nupkg.sha512",
-    "C:\\Users\\LuisC\\.nuget\\packages\\system.text.encodings.web\\4.5.0\\system.text.encodings.web.4.5.0.nupkg.sha512"
+    "C:\\Users\\LuisC\\.nuget\\packages\\system.text.encodings.web\\4.5.0\\system.text.encodings.web.4.5.0.nupkg.sha512",
+    "C:\\Users\\LuisC\\.nuget\\packages\\microsoft.netcore.app.host.linux-x64\\7.0.15\\microsoft.netcore.app.host.linux-x64.7.0.15.nupkg.sha512"
   ],
   "logs": [
     {
@@ -40,7 +42,8 @@
       "message": "iot_agent depends on System.IO.Ports (>= 5.0.2) but System.IO.Ports 5.0.2 was not found. An approximate best match of System.IO.Ports 6.0.0 was resolved.",
       "libraryId": "System.IO.Ports",
       "targetGraphs": [
-        "net7.0"
+        "net7.0",
+        "net7.0/linux-x64"
       ]
     }
   ]

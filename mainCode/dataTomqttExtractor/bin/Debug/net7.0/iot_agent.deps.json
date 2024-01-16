@@ -12,6 +12,7 @@
           "GodSharp.Opc.Da.OpcNetApi": "2022.308.10",
           "MQTTnet": "3.0.16",
           "MQTTnet.Extensions.ManagedClient": "3.0.16",
+          "Microsoft.NET.Build.Containers": "0.3.2",
           "NModbus": "3.0.72",
           "Newtonsoft.Json": "13.0.2-beta3",
           "Oocx.ReadX509CertificateFromPem": "1.2.3",
@@ -91,6 +92,7 @@
           }
         }
       },
+      "Microsoft.NET.Build.Containers/0.3.2": {},
       "Microsoft.Net.Http.Headers/2.2.0": {
         "dependencies": {
           "Microsoft.Extensions.Primitives": "2.2.0",
@@ -321,6 +323,13 @@
       "sha512": "sha512-azyQtqbm4fSaDzZHD/J+V6oWMFaf2tWP4WEGIYePLCMw3+b2RQdj9ybgbQyjCshcitQKQ4lEDOZjmSlTTrHxUg==",
       "path": "microsoft.extensions.primitives/2.2.0",
       "hashPath": "microsoft.extensions.primitives.2.2.0.nupkg.sha512"
+    },
+    "Microsoft.NET.Build.Containers/0.3.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-WkQ2M9PEUYDZM92Yfm6BBkHBTBQtET8Y30l5MOxU/IkiuAAnaGar/sMiNR5s4W+aMB3+S6lzndq9aMxUXw8hCA==",
+      "path": "microsoft.net.build.containers/0.3.2",
+      "hashPath": "microsoft.net.build.containers.0.3.2.nupkg.sha512"
     },
     "Microsoft.Net.Http.Headers/2.2.0": {
       "type": "package",

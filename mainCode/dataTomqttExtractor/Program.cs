@@ -1,4 +1,7 @@
-﻿using dataTomqttExtractor;
+﻿using System;
+
+
+using dataTomqttExtractor;
 
 var modbusGet = new modbusTCPget.ModbusHandler("modbusTCP");
 
@@ -21,15 +24,15 @@ mPUB.startMQTTclient(jsonImport.mqttIP, jsonImport.mqttPort, jsonImport.mqttClie
 
 var daClient = DAgetter.DAclient(jsonImport.opcdaIP, jsonImport.opcdaServer, jsonImport.opcdaVars);
 
-var mbClient = modbusGet.MBclient("localhost", 502);
+var mbClient = modbusGet.MBclient(jsonImport.modbusIP, jsonImport.modbusPort);
 
 
 while (true)
 {
     
-    DAgetter.opcdaGet(daClient);
+    //DAgetter.opcdaGet(daClient);
 
-    mPUB.mqttMsgUpdate(DAgetter.outgetOPCDA, "");
+    //mPUB.mqttMsgUpdate(DAgetter.outgetOPCDA, "");
 
 
     modbusGet.ModbusTCPget(mbClient, jsonImport.modbusVars);
