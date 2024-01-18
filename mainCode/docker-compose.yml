@@ -1,46 +1,68 @@
-version: '3'
+version: '3.8'
 
 services:
   data_extractor:
-    container_name: twinpack-mosquitto
-    image: docker-net-data_extractor:1.0.0
+    container_name: twinpack-extractor
+    image: data_extractor:1.0.0
     ports:
       - "502:502"
       - "135:135"
     networks:
       - my_network
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     # Add other configuration options if needed
 
   data_manager:
-    container_name: twinpack-mosquitto
-    image: docker-net-data_manager:1.0.0
-    ports:
-      - "27017:27017"
+    container_name: twinpack-manager
+    image: data_manager:1.0.0
     networks:
       - my_network
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    depends_on:
+      - mosquitto
+      - mongo_db
+    # Add other configuration options if needed
+
+  front_end:
+    container_name: twinpack-frontend
+    image: twinpack_frontend:latest
+    ports:
+      - "3000:3000"
+    networks:
+      - my_network
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    depends_on:
+      - mongo_db
     # Add other configuration options if needed
 
   mosquitto:
     container_name: twinpack-mosquitto
     image: eclipse-mosquitto:latest
     ports:
-      - "1883:1883"
+      - "1884:1883"
     networks:
       - my_network
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     # Add other configuration options if needed
 
   mongo_db:
     container_name: twinpack-mongo
     image: mongo:latest
     ports:
-      - "27018:27017"
+      - "27016:27017"
     networks:
       - my_network
-    # Add other configuration options if needed
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     environment:
       MONGO_INITDB_ROOT_USERNAME: 
       MONGO_INITDB_ROOT_PASSWORD: 
       MONGO_INITDB_DATABASE: mqtt
+    # Add other configuration options if needed
 
 networks:
   my_network:

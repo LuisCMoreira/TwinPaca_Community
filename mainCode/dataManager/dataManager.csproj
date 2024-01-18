@@ -5,7 +5,7 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <ContainerImageName>docker-net-data_manager</ContainerImageName>
+    <ContainerImageName>data_manager</ContainerImageName>
   </PropertyGroup>
 
   <ItemGroup>

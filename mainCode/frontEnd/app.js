@@ -16,7 +16,7 @@ app.get('/webpage', (req, res) => {
 });
 
 // 1. Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/mqtt', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb://host.docker.internal:27016/mqtt', { useNewUrlParser: true, useUnifiedTopology: true });
 
 const db = mongoose.connection;
 

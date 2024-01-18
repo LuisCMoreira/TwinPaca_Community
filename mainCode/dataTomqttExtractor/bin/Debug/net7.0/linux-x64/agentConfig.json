@@ -7,7 +7,7 @@
   "mqtt": {
     "mqttON": true,
     "IP_address": "host.docker.internal",
-    "port": 1883,
+    "port": 1884,
     "clientID" : "IoTAgent_Cid",
     "beaconMsg": "Hello There!!!",
     "useCerts": false

@@ -12,12 +12,12 @@ class Program
 {
     // MQTT Broker Config
     private const string MqttBrokerHost = "host.docker.internal";
-    private const int MqttBrokerPort = 1883;
-    private const string MqttUsername = "";
-    private const string MqttPassword = "";
+    private const int MqttBrokerPort = 1884;
+    private const string MqttUsername = null;
+    private const string MqttPassword = null;
 
     // MongoDB Config
-    private const string MongoConnectionString = "mongodb://host.docker.internal:27017/";
+    private const string MongoConnectionString = "mongodb://host.docker.internal:27016/";
     private const string MongoDatabaseName = "mqtt";
     private const string MongoCollectionName = "brokertopics";
 
@@ -45,7 +45,7 @@ class Program
         var collection = database.GetCollection<BsonDocument>(MongoCollectionName);
 
         // Keep the application running
-        Console.WriteLine("Press Enter to exit.");
+        //Console.WriteLine("Press Enter to exit.");
         Console.ReadLine();
     }
 
