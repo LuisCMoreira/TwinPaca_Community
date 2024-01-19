@@ -34,6 +34,7 @@ class Program
             .WithCleanSession()
             .Build();
 
+     
         mqttClient.UseConnectedHandler(e => SubscribeToTopicsAsync(mqttClient));
         mqttClient.UseApplicationMessageReceivedHandler(OnMessageReceived);
 
@@ -44,9 +45,14 @@ class Program
         var database = mongoClient.GetDatabase(MongoDatabaseName);
         var collection = database.GetCollection<BsonDocument>(MongoCollectionName);
 
+        while (true)
+        {   
         // Keep the application running
         //Console.WriteLine("Press Enter to exit.");
-        Console.ReadLine();
+        //Console.ReadLine();
+        Thread.Sleep(100);
+        }
+
     }
 
     private static async Task SubscribeToTopicsAsync(IMqttClient mqttClient)
