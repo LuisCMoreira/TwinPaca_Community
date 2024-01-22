@@ -52,6 +52,21 @@ services:
       - mosquitto
     # Add other configuration options if needed
 
+
+  unity_model:
+    container_name: twinpack-unityModel
+    image: unity_sample:latest
+    ports:
+      - "8080:80"
+    networks:
+      - my_network
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    depends_on:
+      - twin_api
+    # Add other configuration options if needed
+
+
   mosquitto:
     container_name: twinpack-mosquitto
     image: eclipse-mosquitto:latest

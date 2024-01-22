@@ -12,6 +12,10 @@ cd "./twinAPI"
 dotnet publish --os linux --arch x64 /t:PublishContainer -o Release .\twinAPI.csproj
 cd ..
 
+cd "./unityPJ/twinSample_webGLbuild"
+docker build -t unity_sample .
+cd ../..
+
 cd "./frontEnd"
 docker build -t twinpack_frontend .
 cd ..

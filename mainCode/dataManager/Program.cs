@@ -21,6 +21,8 @@ class Program
     private const string MongoDatabaseName = "mqtt";
     private const string MongoCollectionName = "brokertopics";
 
+    private const string MongoStorageCollection = "telemetry";
+
     static async Task Main(string[] args)
     {
         // MQTT Client Setup
@@ -34,7 +36,7 @@ class Program
             .WithCleanSession()
             .Build();
 
-     
+
         mqttClient.UseConnectedHandler(e => SubscribeToTopicsAsync(mqttClient));
         mqttClient.UseApplicationMessageReceivedHandler(OnMessageReceived);
 
@@ -46,11 +48,11 @@ class Program
         var collection = database.GetCollection<BsonDocument>(MongoCollectionName);
 
         while (true)
-        {   
-        // Keep the application running
-        //Console.WriteLine("Press Enter to exit.");
-        //Console.ReadLine();
-        Thread.Sleep(100);
+        {
+            // Keep the application running
+            //Console.WriteLine("Press Enter to exit.");
+            //Console.ReadLine();
+            Thread.Sleep(100);
         }
 
     }
@@ -88,73 +90,74 @@ class Program
         }
     }
 
-private static void UpdateMongoDB(string topic, BsonDocument data)
-{
-    try
+    private static void UpdateMongoDB(string topic, BsonDocument data)
     {
-        // MongoDB Setup
-        var mongoClient = new MongoClient(MongoConnectionString);
-        var database = mongoClient.GetDatabase(MongoDatabaseName);
-        var collection = database.GetCollection<BsonDocument>(MongoCollectionName);
-
-        // Find the existing document or create a new one
-        var filter = Builders<BsonDocument>.Filter.Eq("_id", "topic_values");
-        var existingDocument = collection.Find(filter).FirstOrDefault() ?? new BsonDocument();
-
-        // Update the existing JSON structure with the new data and updatedAt timestamp
-        UpdateJsonStructure(topic, data, existingDocument);
-
-        // Update the updatedAt timestamp
-        UpdateTimestamp(topic, existingDocument);
-
-        // Update the MongoDB document with the updated JSON structure
-        collection.ReplaceOne(filter, existingDocument, new ReplaceOptions { IsUpsert = true });
-
-        Console.WriteLine($"Updated data in MongoDB for topic {topic}: {data}");
-
-        AppendValuesToCollection(MongoDatabaseName, "Telemetry", topic, data);
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine($"MongoDB Error: {ex.Message}");
-    }
-}
-
-private static void UpdateJsonStructure(string topic, BsonDocument data, BsonDocument jsonStructure)
-{
-    var topicParts = topic.Split("/");
-    var current = jsonStructure;
-
-    foreach (var part in topicParts)
-    {
-        if (!current.Contains(part))
+        try
         {
-            current.Add(part, new BsonDocument());
+            // MongoDB Setup
+            var mongoClient = new MongoClient(MongoConnectionString);
+            var database = mongoClient.GetDatabase(MongoDatabaseName);
+            var collection = database.GetCollection<BsonDocument>(MongoCollectionName);
+
+            // Find the existing document or create a new one
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", "topic_values");
+            var existingDocument = collection.Find(filter).FirstOrDefault() ?? new BsonDocument();
+
+            // Update the existing JSON structure with the new data and updatedAt timestamp
+            UpdateJsonStructure(topic, data, existingDocument);
+
+            // Update the updatedAt timestamp
+            UpdateTimestamp(topic, existingDocument);
+
+            // Update the MongoDB document with the updated JSON structure
+            collection.ReplaceOne(filter, existingDocument, new ReplaceOptions { IsUpsert = true });
+
+            Console.WriteLine($"Updated data in MongoDB for topic {topic}: {data}");
+
+            Console.WriteLine($"test topic {topic}");
+            AppendValuesToCollection(MongoDatabaseName, "Telemetry", topic, data);
         }
-
-        current = current[part].AsBsonDocument;
-
-        if (part == topicParts[^1]) // Check if it's the last part of the topic
+        catch (Exception ex)
         {
-            current["value"] = data;
+            Console.WriteLine($"MongoDB Error: {ex.Message}");
         }
     }
-}
 
-private static void UpdateTimestamp(string topic, BsonDocument jsonStructure)
-{
-    var current = jsonStructure;
-
-    foreach (var part in topic.Split("/"))
+    private static void UpdateJsonStructure(string topic, BsonDocument data, BsonDocument jsonStructure)
     {
-        current = current[part].AsBsonDocument;
+        var topicParts = topic.Split("/");
+        var current = jsonStructure;
+
+        foreach (var part in topicParts)
+        {
+            if (!current.Contains(part))
+            {
+                current.Add(part, new BsonDocument());
+            }
+
+            current = current[part].AsBsonDocument;
+
+            if (part == topicParts[^1]) // Check if it's the last part of the topic
+            {
+                current["value"] = data;
+            }
+        }
     }
 
-    current["updated_at"] = DateTime.UtcNow;
-}
+    private static void UpdateTimestamp(string topic, BsonDocument jsonStructure)
+    {
+        var current = jsonStructure;
+
+        foreach (var part in topic.Split("/"))
+        {
+            current = current[part].AsBsonDocument;
+        }
+
+        current["updated_at"] = DateTime.UtcNow;
+    }
 
 
-    private static void AppendValuesToCollection(string dbName, string collectionName, string key1,  BsonDocument jsonValue1)
+    private static void AppendValuesToCollection(string dbName, string collectionName, string key1, BsonDocument jsonValue1)
     {
         try
         {
@@ -164,7 +167,7 @@ private static void UpdateTimestamp(string topic, BsonDocument jsonStructure)
             var collection = database.GetCollection<BsonDocument>(collectionName);
 
 
-var bsonValue1 = (jsonValue1);
+            var bsonValue1 = (jsonValue1);
 
             // Create a document with the specified key-value pairs
             var documentToAppend = new BsonDocument

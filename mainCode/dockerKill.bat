@@ -6,6 +6,7 @@ docker rmi twinpack_frontend
 docker rmi data_extractor:1.0.0
 docker rmi data_manager:1.0.0
 docker rmi twinapi:1.0.0
+docker rmi unity_sample
 docker rmi eclipse-mosquitto
 docker rmi mongo
 
